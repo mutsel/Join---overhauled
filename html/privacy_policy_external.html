@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Privacy Policy</title>
+  <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png" />
+
+  <link rel="manifest" href="../assets/icons/site.webmanifest" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="../styles/navigation.css">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../styles/privacy_legals_help.css">
+
+  <script src="../script.js"></script>
+</head>
+
+<body onload="init()">
+  <header id="header" class="header flex just-space-b align-center">
+    <p class="header-text">Kanban Project Management Tool</p>
+    <img src="../assets/join_logo_dark.svg" alt="logo" class="join-logo">
+    <section class="header-nav flex align-center just-space-b">
+      <img onclick="redirectToHelpExternal(window.location.href)" src="../assets/header_help.svg" id="headerHelp"
+        class="header-help" alt="help">
+      <div class="header-user-pb flex align-center just-center" onclick="toggleSubmenu()">
+        <span id="headerUserName"></span>
+      </div>
+    </section>
+  </header>
+
+  <nav class="sidebar flex column align-center just-start">
+    <img src="../assets/join_logo_light.svg" class="join-logo" alt="logo">
+    <section class="sidebar-content flex column align-center">
+      <div class="join-links flex column just-center align-start">
+        <a href="/index.html" id="loginLink" class="flex align-center">
+          <img src="../assets/sidebar_login.svg" alt="summary link">
+          <span>Log In</span>
+        </a>
+      </div>
+      <div class="privacy-legals-links flex column just-center">
+        <a id="privacyPolicyLink" href="./privacy_policy_external.html">Privacy Policy</a>
+        <a id="legalNoticeLink" href="./legal_notice_external.html">Legal Notice</a>
+      </div>
+    </section>
+  </nav>
+
+  <main>
+    <section class="title">
+      <h1>Privacy Policy</h1>
+      <p>Status: 17.03.2025</p>
+    </section>
+    <section class="main-container">
+      <h2 class="no-padding">Responsible Party</h2>
+      <h3>The responsible party for data collection and processing in this application is:</h3>
+      <p class="no-padding">Anne Vollmann, E-Mail:
+        <a href="mailto:vollmann.anne@web.de">vollmann.anne@web.de</a>
+      </p>
+      <p class="no-padding">
+        Sonja Reimann-Thanisch, E-Mail: <a
+          href="mailto:sonja.reimann.thanisch@gmail.com">sonja.reimann.thanisch@gmail.com</a>
+      </p>
+      <p class="no-padding">
+        Liane Schmuhl, E-Mail: <a href="mailto:ls.nordlicht@gmail.com">ls.nordlicht@gmail.com</a>
+      </p>
+      </p>
+
+      <h2>1. What data is collected?</h2>
+      <h3>The following data is stored in this application:</h3>
+      <ul>
+        <li>Contact details : Name, email address, and other contact information of users.</li>
+        <li>User data : Information about registered users and guest users.</li>
+        <li>Tasks : Notes or tasks created by users, including the assigned priority (urgent, normal, no urgency).
+        </li>
+      </ul>
+
+      <h2>2. Purpose of data collection</h2>
+      <h3>The data is collected to:</h3>
+      <ul>
+        <li>Enable the use of the application.</li>
+        <li>Manage and organize tasks and notes.</li>
+        <li>Ensure communication with users.</li>
+      </ul>
+
+      <h2>3. Legal basis for processing</h2>
+      <p>The processing of data is based on user consent (Art. 6 para. 1 lit. a GDPR) and for the fulfillment
+        of contractual obligations (Art. 6 para. 1 lit. b GDPR).
+      </p>
+
+      <h2>4. Storage duration</h2>
+      <p>The data is stored for as long as it is necessary to fulfill the stated purposes or until users withdraw their
+        consent.
+        Guest user data will be deleted after the session ends or after a specified period.
+      </p>
+
+      <h2>5. Sharing of data</h2>
+      <p>The data will not be shared with third parties unless required by law or necessary for the
+        provision of services (e.g., to IT service providers).
+      </p>
+
+      <h2>6. User rights</h2>
+      <h3>Users have the right to:</h3>
+      <ul>
+        <li>Access their stored data.</li>
+        <li>Request correction or deletion of their data.</li>
+        <li>Restrict processing.</li>
+        <li>Object to processing.</li>
+        <li>Data portability.</li>
+      </ul>
+
+      <p>To exercise these rights, users can contact the responsible party mentioned above.</p>
+
+      <h2>7. Data security</h2>
+      <p>We implement technical and organizational measures to protect the data from unauthorized access, loss, or
+        misuse.
+      </p>
+
+      <h2>8. Changes to this Privacy Policy</h2>
+      <p>
+        We reserve the right to update this Privacy Policy to reflect changes in legal requirements or changes to the
+        application.
+      </p>
+
+      <h2>9. Contact</h2>
+      <p class="no-padding">
+        <a class="join-email" href="mailto:vollmann.anne@web.de">vollmann.anne@web.de</a>
+      </p>
+      <p class="no-padding">
+        <a class="join-email" href="mailto:sonja.reimann.thanisch@gmail.com">sonja.reimann.thanisch@gmail.com</a>
+      </p>
+      <p>
+        <a class="join-email" href="mailto:ls.nordlicht@gmail.com">ls.nordlicht@gmail.com</a>
+      </p>
+    </section>
+  </main>
+  <section onclick="toggleSubmenu()" id="submenuOverlay" class="submenu-overlay d-none">
+    <div id="submenu" class="submenu" onclick="event.stopImmediatePropagation()">
+      <p class="hide-help-option-desktop"><a href="../html/help_external.html">Help</a></p>
+      <p><a href="../html/legal_notice_external.html">Legal Notice</a></p>
+      <p><a href="../html/privacy_policy_external.html">Privacy Policy</a></p>
+      <p><a href="../index.html">Logout</a></p>
+    </div>
+  </section>
+</body>
+
+</html>

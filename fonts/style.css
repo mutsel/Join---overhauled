@@ -1,0 +1,280 @@
+/* basic css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter';
+  font-size: 16px;    /* 1rem */
+  line-height: 1.2;   /* oder 120% */
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-gray);
+}
+
+h1 {
+  font-size: var(--fs-61-47);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--fs-h2); 
+  font-weight: 700; 
+} 
+
+h3 { 
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-27);
+}
+
+h5 {
+  font-size: var(--fs-20);
+  font-weight: var(--fw-700);
+}
+
+main {
+  margin-left: 232px;
+  overflow: hidden;
+}
+
+/* customs css */
+.responsive-main {
+  padding: min(24px, max(1.5rem, 5vw));
+  p {
+    margin: 8px 0 16px;
+  }
+  @media (max-width: 900px) {
+    margin: 0;
+    margin-bottom: 100px;
+  }
+}
+
+.d-none {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.just-center {
+  justify-content: center;
+}
+
+.just-space-b {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.btn-login {
+  height: 48px;
+  width: 110px;
+  padding: 15px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: var(--fs-20-16);
+  font-weight: var(--fw-700);
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  @media (max-width: 900px) {
+    height: 51px;
+    width: 180px;
+    padding: 4px 0;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 24px;
+  overflow-y: auto 53px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--clr-white);
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: center;
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:vertical:start:increment {
+  height: 24px;
+  background-image: url('/assets/icons/scrollbar-btn-up.svg');
+  background-position: bottom;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:vertical:start:decrement {
+  display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:vertical:end:increment {
+  height: 24px;
+  background-image: url('/assets/icons/scrollbar-btn-down.svg');
+  background-position: top;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:vertical:end:decrement {
+  display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border: 8px solid var(--clr-white);
+  border-radius: 30px;
+  background: var(--clr-lighterGray);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-lightGray);
+}
+
+/* for addTasks and board */
+.profile-badge {
+  border: 2px solid var(--clr-white);
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-lighterGray);
+  color: var(--clr-white);
+  font-size: var(--fs-12) !important;
+}
+
+/* for contacts and board */
+.overlay-close {
+  align-self: flex-end;
+}
+
+.overlay-close:hover {
+  cursor: pointer;
+  border-radius: 56px;
+  background-color: var(--clr-lightGray);
+}
+
+.messages {
+  height: 0;
+  width: 0;
+}
+
+.succesfull-msg {
+  width: 326px;
+  height: 74px;
+  border-radius: 20px;
+  position: relative;
+  bottom: 40vh;
+  left: -100vb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-primary);
+  box-shadow: var(--shadow-nuevo);
+  color: var(--clr-white);
+  font-size: var(--fs-20);
+  @media (max-width: 900px) {
+    width: 300px;
+    height: 60px;
+    bottom: 60vh;
+  }
+}
+
+/* This is added to the success-messages, when create/edit/delete was succesfully*/
+@keyframes msgSuccesfullDesktop {
+  0% {
+    left: -100vb;
+  }
+
+  25% {
+    left: 40vb;
+  }
+
+  75% {
+    left: 40vb;
+  }
+
+  100% {
+    left: -100vb;
+  }
+}
+
+@keyframes msgSuccesfullMobile {
+  0% {
+    left: -100vb;
+  }
+
+  25% {
+    left: 1vb;
+  }
+
+  75% {
+    left:  1vb;
+  }
+
+  100% {
+    left: -100vb;
+  }
+}
+
+/** This class is added, when input requirement is unfulfilled **/
+.requirement-unfulfilled {
+  outline: 1px solid #FF001F !important;
+}
+
+.blue-btn {
+  background: var(--button-bg);
+  color: var(--clr-white);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.blue-btn:hover {
+  background-color: var(--Light-Blue);
+  box-shadow: var(--shadow-stronger); 
+}
+
+.white-btn {
+  background: var(--clr-white);
+  color: var(--button-bg);
+  border: 1px solid var(--button-bg);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.white-btn:hover {
+  border: 1px solid var(--clr-lightBlue);
+  color: var(--clr-lightBlue);
+}
+
+.input-error{
+  color: #FF001F;
+  font-size: var(--fs-16-12);
+  font-weight: var(--fw-500);
+  line-height: 15.6px;
+  text-align: start;
+  position: absolute;
+  bottom: 25px;
+}

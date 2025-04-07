@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../styles/login_signup.css">
+
+    <script src="../script.js"></script>
+    <script src="../scripts/signup.js"></script>
+</head>
+
+<body onload="initSignUp()">
+    <section class="login-signup-header flex just-space-b">
+        <div class="join-logo no-animation"></div>
+    </section>
+
+    <main>
+        <section class="login-signup-container no-animation flex align-center just-center">
+            <a href="../index.html" class="signup-redirect-login">
+                <img onclick="redirectToPreviousPage()" src="../assets/arrow_backwards.svg" class="arrow-backwards">
+            </a>
+
+            <div class="title flex align-center just-center">
+                <h1>Sign up</h1>
+                <div class="title-seperator"></div>
+            </div>
+
+            <form class="flex align-center just-center">
+                <input onblur="checkFilledInput('name')" id="name" required type="text"
+                    name="name" placeholder="Name" minlength="1" maxlength="30">
+                <input onblur="checkFilledInput('mail')" id="mail" required type="email"
+                    placeholder="Email" minlength="1" maxlength="30">
+                <input onblur="checkFilledInput('password')" id="password"
+                    type="password" placeholder="Password" minlength="1" maxlength="18">
+                <input onblur="checkFilledInput('confirmed')" id="confirmed" required type="password" placeholder="Confirm Password">
+                <div class="signup-checkbox flex align-center">
+                    <input required type="checkbox" id="checkboxSignUp">
+                    I accept the
+                    <a href="../html/privacy_policy_external.html">Privacy Policy</a>
+                </div>
+
+                <div class="sign-up-alerts flex">
+                    <span id="alertName" class="input-error invisible">Please enter a valid name</span>
+                    <span id="alertMail" class="input-error invisible">Please enter a valid email
+                        address</span>
+                    <span id="alertPasswordSignUp" class="input-error invisible">Please enter a valid
+                        password</span>
+                    <span id="alertConfirmSignUp" class="input-error invisible">Please make sure your
+                        passwords
+                        match</span>
+                    <span id="alertCheckboxSignUp" class="input-error invisible">Please accept the Privacy
+                        Policy</span>
+                </div>
+            </form>
+
+            <div class="submit-btns flex just-center align-center">
+                <button onclick="addUser(); return false" class="blue-btn">Sign up</button> 
+            </div>
+        </section>
+    </main>
+
+    <section class="policy-legals-links flex just-center no-animation">
+        <a href="../html/privacy_policy_external.html">Privacy Policy</a>
+        <a href="../html/legal_notice_external.html">Legal notice</a>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Board</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../styles/board.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../styles/add_task.css">
+
+    <script src="../script.js"></script>
+    <script src="../scripts/include.js"></script>
+    <script src="../scripts/templates.js"></script>
+    <script src="../scripts/board.js"></script>
+    <script src="../scripts/board_overlays.js"></script>
+    <script src="../scripts/add_edit_tasks.js"></script>
+    <script src="../scripts/add_task.js"></script>
+</head>
+
+<body onload="initBoard()" onresize="moveTaskMenuMobile()">
+    <section w3-include-html="./header.html"></section>
+    <section w3-include-html="./sidebar.html"></section>
+
+    <main>
+        <section class="board-header flex align-center just-space-b">
+            <h1>Board</h1>
+            <div class="board-input flex align-center">
+                <input onkeyup="startSearchingTasks()" id="searchInput" type="text" name="search"
+                    placeholder="Find Task">
+                <div class="input-seperator"></div>
+                <button class="blue-btn" onclick="boardAddTask('add', 'toDo')">
+                    <p>Add Task</p>
+                    <img src="../assets/plus.svg" alt="+">
+                </button>
+            </div>
+        </section>
+
+        <section class="board-categories-wrapper flex just-space-b">
+            <div class="board-category flex column">
+                <div class="board-category-header flex just-space-b">
+                    <p>To Do</p>
+                    <div onclick="boardAddTask('add', 'toDo')" class="board-plus-btn"></div>
+                </div>
+                <div class="board-category-content flex column">
+                    <div class="no-task-message flex align-center just-center" id="noTaskToDo">No Tasks To Do</div>
+                    <div id="toDo" class="board-tasks-list flex column" ondrop="drop(event)"
+                        ondragover="event.preventDefault()" ondragenter="showDropdownArea('toDo')"></div>
+                </div>
+            </div>
+
+            <div class="board-category flex column">
+                <div class="board-category-header flex just-space-b">
+                    <p>In Progress</p>
+                    <div onclick="boardAddTask('add', 'inProgress')" class="board-plus-btn"></div>
+                </div>
+                <div class="board-category-content flex column">
+                    <div class="no-task-message flex align-center just-center" id="noTaskInProgress">No Tasks In
+                        Progress
+                    </div>
+                    <div id="inProgress" class="board-tasks-list flex column" ondrop="drop(event)"
+                        ondragover="event.preventDefault()" ondragenter="showDropdownArea('inProgress')"></div>
+                </div>
+            </div>
+
+            <div class="board-category flex column">
+                <div class="board-category-header flex just-space-b">
+                    <p>Await Feedback</p>
+                    <div onclick="boardAddTask('add', 'awaitFeedback')" class="board-plus-btn"></div>
+                </div>
+                <div class="board-category-content flex column">
+                    <div class="no-task-message flex align-center just-center" id="noTaskAwaitFeedback">No Tasks <br>
+                        Await
+                        Feedback</div>
+                    <div id="awaitFeedback" class="board-tasks-list flex column" ondrop="drop(event)"
+                        ondragover="event.preventDefault()" ondragenter="showDropdownArea('awaitFeedback')"></div>
+                </div>
+            </div>
+
+            <div class="board-category flex column">
+                <div class="board-category-header flex just-space-b">
+                    <p>Done</p>
+                </div>
+                <div class="board-category-content flex column">
+                    <div class="no-task-message flex align-center just-center" id="noTaskDone">No Tasks Done</div>
+                    <div id="done" class="board-tasks-list flex column" ondrop="drop(event)"
+                        ondragover="event.preventDefault()" ondragenter="showDropdownArea('done')"></div>
+                </div>
+            </div>  
+        </section>
+
+        <section id="noResultSearchInput" class="no-result-search-overlay flex align-center just-center d-none">
+            <div class="no-task-message no-result-search flex align-center just-center">
+                no result matches the search criteria
+            </div>
+        </section>
+    </main>
+
+    <section id="boardOverlayBg" class="overlay d-none" onclick="closeOverlays()"></section>
+
+    <section id="addTaskOverlay" class="board-add-task-overlay board-overlay d-none">
+        <div id="addTaskOverlayContent" class="add-task-overlay-content"></div>
+    </section>
+
+    <section id="overviewOverlay" class="board-overview-overlay board-overlay d-none"></section>
+
+    <section id="editTaskOverlay" class="board-edit-task-overlay board-overlay d-none">
+        <div id="editTaskOverlayContent" class="edit-task-overlay-content"></div>
+    </section>
+
+    <section class="messages">
+        <div id="taskSuccesfullyCreated" class="succesfull-msg">
+          <span>Task succesfully created</span>
+        </div>
+        <div id="taskSuccesfullyEdited" class="succesfull-msg">
+          <span>Task succesfully edited</span>
+        </div>
+        <div id="taskSuccesfullyDeleted" class="succesfull-msg">
+          <span>Task succesfully deleted</span>
+        </div>
+      </section>
+
+    <section onclick="toggleSubmenu()" id="submenuOverlay" class="submenu-overlay d-none">
+        <div id="submenu" class="submenu" onclick="event.stopImmediatePropagation()">
+            <p class="hide-help-option-desktop"><a href="../html/help.html">Help</a></p>
+            <p><a href="../html/legal_notice.html">Legal Notice</a></p>
+            <p><a href="../html/privacy_policy.html">Privacy Policy</a></p>
+            <p><a href="../index.html">Logout</a></p>
+        </div>
+    </section>
+    <script>includeHTML();</script>
+</body>
+
+</html>

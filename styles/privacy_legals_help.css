@@ -1,0 +1,62 @@
+main {
+  padding-bottom: 48px;
+  @media (max-width: 900px) {
+    padding-bottom: 20px;
+  }
+}
+
+li {
+  list-style-position: inside;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.title {
+  padding-top: calc(9.875rem - clamp(3rem, 13.3333rem + -11.4815vw, 6.875rem));
+  padding-right: calc(7rem - clamp(1rem, 14.3333rem + -14.8148vw, 6rem));
+  padding-left: calc(7rem - clamp(1rem, 14.3333rem + -14.8148vw, 6rem));
+}
+
+.main-container {
+  padding-top: 32px;
+  padding-right: calc(7rem - clamp(1rem, 14.3333rem + -14.8148vw, 6rem));
+  padding-left: calc(7rem - clamp(1rem, 14.3333rem + -14.8148vw, 6rem));
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    padding-top: 24px;
+    padding-bottom: 4px;
+    font-size: var(--fs-27);
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: var(--fs-20);
+    font-weight: var(--fw-700);
+  }
+
+  p,
+  ul {
+    padding-bottom: 14px;
+  }
+
+  span {
+    color: #29ABE2;
+  }
+}
+
+.how-to-use {
+  .list-point {
+    padding-right: 25px;
+    font-size: var(--fs-27);
+    font-weight: 700;
+  }
+}
+
+.join-email {
+  color: var(--clr-darkBlue);
+  text-decoration: underline;
+}

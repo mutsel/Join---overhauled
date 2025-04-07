@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Add Task</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="../assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <link rel="stylesheet" href="../styles/add_task.css">
+
+    <script src="../script.js"></script>
+    <script src="../scripts/include.js"></script>
+    <script src="../scripts/templates.js"></script>
+    <script src="../scripts/add_task.js"></script>
+    <script src="../scripts/add_edit_tasks.js"></script>
+</head>
+
+<body onload="initAddTask()">
+    <section w3-include-html="./header.html"></section>
+    <section w3-include-html="./sidebar.html"></section>
+
+    <main>
+        <section id="addTask" class="add-task">
+            <div class="title task-content flex align-start just-space-b">
+                <h1 id="addTaskH1" class="">Add Task</h1>
+                <img onclick="closeOverlays()" src="../assets/cancel.svg" class="overlay-close"></img>
+            </div>
+            
+            <form id="addTaskForm" class="add-task-form task-content flex just-space-b">
+                <div class="add-task-form-column flex">
+                    <label for="addTaskTitle">
+                        Title
+                        <span class="required-star">*</span>
+                    </label>
+                    <input onblur="checkFilledInput('addTaskTitle')" id="addTaskTitle" type="text"
+                        placeholder="Enter a title" required>
+
+                    <label for="addTaskDescription">Description</label>
+                    <textarea type="text" id="addTaskDescription" placeholder="Enter a Description"></textarea>
+
+                    <label for="addTaskAssignedTo">Assigned to</label>
+                    <input onkeyup="startSearchingContacts()"
+                        onfocus="toggleAddTaskToDropDownMenu('addTaskAssignedTo', 'addTaskDropdownContacts')"
+                        id="addTaskAssignedTo" class="add-task-select-menu add-task-assigned-to" type="text" name="select"
+                        placeholder="Select contacts to assign">
+                    <div class="add-task-dropdown custom-scrollbar flex">
+                        <div id="addTaskDropdownContacts" class="dropdown-content d-none"></div>
+                    </div>
+                    <div class="assigned-to-list flex">
+                        <div id="addTaskAssignedToListContent"
+                            class="assigned-to-list-content flex align-center just-start"></div>
+                        <div id="assignedContactsAddition" class="profile-badge assigned-to-addition d-none flex">+<p
+                                id="assignedContactsAdditionNumber">0</p>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="add-task-seperator"></div>
+
+                <div class="add-task-form-column flex">
+                    <label for="addTaskDate">
+                        Due date
+                        <span class="required-star">*</span>
+                    </label>
+                    <input onblur="checkFilledInput('addTaskDate'), checkDateInput()" form="dd/mm/yyyy" id="addTaskDate"
+                        class="add-task-date" type="date" min="1920-01-01" max="2100-12-31" required>
+                    <div class="add-task-alerts flex">
+                        <span id="alertAddTaskDate" class="input-error date-error invisible">Please enter a valid date</span>
+                    </div>
+
+                    <label for="addTaskPriorities">Priority</label>
+                    <div id="addTaskPriorities" class="add-task-priorities flex just-space-b">
+                        <div id="prioUrgent" onclick="priorityBtnBg('prioUrgent')"
+                            class="flex align-center just-center">
+                            Urgent
+                            <img id="prioUrgentImg" src="../assets/prioUrgent.svg">
+                        </div>
+                        <div id="prioMedium" onclick="priorityBtnBg('prioMedium')"
+                            class="flex align-center just-center">
+                            Medium
+                            <img id="prioMediumImg" src="../assets/prioMedium.svg">
+                        </div>
+                        <div id="prioLow" onclick="priorityBtnBg('prioLow')" class="flex align-center just-center">
+                            Low
+                            <img id="prioLowImg" src="../assets/prioLow.svg">
+                        </div>
+                    </div>
+
+                    <label for="addTaskCategory">
+                        Category
+                        <span class="required-star">*</span>
+                    </label>
+                    <input onblur="checkFilledInput('addTaskCategory')"
+                        onfocus="toggleAddTaskToDropDownMenu('addTaskCategory','addTaskDropdownCategories')"
+                        id="addTaskCategory" class="add-task-select-menu" type="text" name="select" placeholder="Select task category" readonly>
+                    <div class="add-task-dropdown flex">
+                        <div id="addTaskDropdownCategories" class="dropdown-content d-none">
+                            <div onclick="selectTaskCategory('Bug Fix')"
+                                class="dropdown-option flex align-center just-space-b">Bug Fix</div>
+                            <div onclick="selectTaskCategory('Documentation')"
+                                class="dropdown-option flex align-center just-space-b">Documentation</div>
+                            <div onclick="selectTaskCategory('Technical Task')"
+                                class="dropdown-option flex align-center just-space-b">Technical Task</div>
+                            <div onclick="selectTaskCategory('User Story')"
+                                class="dropdown-option flex align-center just-space-b">User Story</div>
+                        </div>
+                    </div>
+
+                    <label id="subtaskLabel" for="addTaskSubtask flex">Subtasks</label>
+                    <div class="add-task-subtasks flex">
+                        <input onfocus="changeSubtaskIcons()" onfocusout="changeSubtaskIcons()" type="text"
+                            id="addTaskSubtask" placeholder="Add new subtask">
+                        <div class="subtasks-input-icons flex align-center">
+                            <img id="subtaskIconAdd" class="subtask-icon"
+                                src="../assets/plus.svg">
+                            <div id="subtaskIconsFocus" class="d-none">
+                                <img onclick="clearSubtasksInput()" class="subtask-icon"
+                                    src="../assets/cancel.svg">
+                                <div class="subtask-icons-seperator"></div>
+                                <img onclick="addSubtaskToList()" class="subtask-icon"
+                                    src="../assets/create_dark.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subtasks-list">
+                        <ul id="addTaskSubtaskListContent" class="flex"></ul>
+                    </div>
+                </div>
+            </form>
+
+            <section id="addTaskSubmit" class="add-task-footer task-content flex just-space-b">
+                <div class="add-task-requirements flex">
+                    <span class="required-star">*</span>
+                    <p>This field is required</p>
+                </div>
+
+                <div class="add-task-submit flex just-space-b">
+                    <div class="add-task-alerts flex">
+                        <span id="alertAddTask" class="input-error invisible">Please fill in the required inputs</span>
+                    </div>
+                    <div id="addTaskSubmitBtns" class="add-task-submit-btns flex">
+                        <button onclick="initAddTask()" class="white-btn" id="addTaskCancel">
+                            Cancel
+                            <div class="cancel-img"></div>
+                        </button>
+                        <button onclick="addTask()" class="blue-btn progress-toDo" id="addTaskCreate">
+                            Create Task
+                            <img src="../assets/create_light.svg">
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section onclick="removeAddTaskOverlay()" id="addTaskOverlayBg" class="add-task-overlay-bg d-none">
+            </section>
+
+            <section onclick="toggleSubmenu()" id="submenuOverlay" class="submenu-overlay d-none">
+                <div id="submenu" class="submenu" onclick="event.stopImmediatePropagation()">
+                    <p class="hide-help-option-desktop"><a href="../html/help.html">Help</a></p>
+                    <p><a href="../html/legal_notice.html">Legal Notice</a></p>
+                    <p><a href="../html/privacy_policy.html">Privacy Policy</a></p>
+                    <p><a href="../index.html">Logout</a></p>
+                </div>
+            </section>
+        </section>
+    </main>
+    <section class="messages">
+        <div id="addTaskTaskSuccesfullyCreated" class="succesfull-msg">
+            <span>Task succesfully created</span>
+        </div>
+    </section>
+    <script>includeHTML();</script>
+</body>
+
+</html>

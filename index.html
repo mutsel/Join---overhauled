@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Login</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="./assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/root.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./styles/login_signup.css">
+
+    <script src="./script.js"></script>
+    <script src="./scripts/login.js"></script>
+</head>
+
+<body onload="initLogIn()">
+    <section class="login-signup-header flex just-space-b">
+        <div class="login-overlay">
+            <div class="join-logo"></div>
+        </div>
+ 
+        <div class="login-redirect-signup flex align-center just-center">
+            <p>Not a Join user?</p>
+            <button class="blue-btn">
+                <a href="./html/sign_up.html">Sign up</a>
+            </button>
+        </div>
+    </section> 
+
+    <main>
+        <section class="login-signup-container flex align-center just-center">
+            <div class="title flex align-center just-center">
+                <h1>Log in</h1>
+                <div class="title-seperator"></div>
+            </div>
+
+            <form class="flex align-center just-center">
+                <input onblur="checkFilledInput('mail')" autocomplete="email" id="mail" required type="email"
+                    placeholder="Email" minlength="1" maxlength="30">
+                <input onblur="checkFilledInput('password')" autocomplete="new-password" id="password" name="password"
+                    type="password" placeholder="Password">
+                <span id="alertLogIn" class="input-error invisible">Please check your email and password and
+                    try again.</span>
+            </form>
+
+            <div class="submit-btns flex just-center align-center">
+                <button onclick="logIn(); return false" class="blue-btn">Log in</button>
+                <button onclick="guestLogin(); return false" class="white-btn">Guest Log in</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="policy-legals-links flex just-center">
+        <a href="../html/privacy_policy_external.html">Privacy Policy</a>
+        <a href="../html/legal_notice_external.html">Legal notice</a>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Legal Notice</title>
+  <link rel="shortcut icon" href="../assets/icons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png" />
+
+  <link rel="manifest" href="../assets/icons/site.webmanifest" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="../styles/navigation.css">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../styles/privacy_legals_help.css">
+
+  <script src="../script.js"></script>
+  <script src="../scripts/include.js"></script>
+</head>
+
+<body onload="init()">
+  <section w3-include-html="./header.html" class="privacy-legal-header"></section>
+  <section w3-include-html="./sidebar.html"></section>
+
+  <main>
+    <section class="title">
+      <h1>Legal Notice</h1>
+    </section>
+    <section class="main-container flex">
+      <h2 class="no-padding">Imprint</h2>
+        <ul>
+          <li>Anne Vollmann, Sonja Reimann-Thanisch, Liane Schmuhl</li>
+          <li>Prof.Billroth-Str. 14</li>
+          <li>01259 Dresden, Germany</li>
+        </ul>
+        <div>
+          <h3>Exploring the Board</h3>
+          <p>Email: vollmann.anne@web.de</p>
+        </div>
+        <div>
+          <h3>Acceptance of terms</h3>
+          <p>
+            By accessing and using <span>Join</span> (Product), you acknowledge and agree to the following terms and conditions, and
+            any
+            policies, guidelines, or amendments
+            thereto that may be presented to you from time to time. We, the listed students, may update or change the
+            terms
+            and conditions from time to time
+            without notice.
+          </p>
+        </div>
+        <div>
+          <h3>Scope and ownership of the product</h3>
+          <p>
+            <span>Join</span> has been developed as part of a student group project in a web development bootcamp at the <span>Developer Akademie GmbH</span>. It has an educational purpose
+            and is not intended for extensive personal & business usage. As such, we cannot guarantee consistent
+            availability, reliability, accuracy, or any other
+            aspect of quality regarding this Product.
+          </p>
+          <p>
+            The design of <span>Join</span> is owned by the <span>Developer Akademie GmbH</span>. Unauthorized use, reproduction, modification,
+            distribution, or replication of the design
+            is strictly prohibited.
+          </p>
+        </div>
+        <div>
+          <h3>Proprietary rights</h3>
+          <p>
+            Aside from the design owned by <span>Developer Akademie GmbH</span>, we, the listed students, retain all proprietary
+            rights
+            in <span>Join</span>, including any associated
+            copyrighted material, trademarks, and other proprietary information.
+          </p>
+        </div>
+        <div>
+          <h3>Use of the product</h3>
+          <p>
+            <span>Join</span> is intended to be used for lawful purposes only, in accordance with all applicable laws and
+            regulations.
+            Any use of <span>Join</span> for illegal activities,
+            or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely
+            responsible
+            for your interactions with other users
+            of <span>Join</span>.
+          </p>
+        </div>
+        <div>
+          <h3>Disclaimer of warranties and limitation of liability</h3>
+          <p>
+            <span>Join</span> is provided "as is" without warranty of any kind, whether express or implied, including but not limited
+            to
+            the implied warranties of
+            merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed
+            students, or the <span>Developer Akademie</span>, be
+            liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not
+            limited to, damages for loss of profits,
+            goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such
+            damages, arising out of or in connection with
+            the use or performance of <span>Join</span>.
+          </p>
+        </div>
+        <div>
+          <h3>Indemnity</h3>
+          <p>
+            You agree to indemnify, defend and hold harmless us, the listed students, the <span>Developer Akademie</span>, and our
+            affiliates, partners, officers, directors,
+            agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including
+            reasonable legal fees) arising out of or
+            relating to your use of <span>Join</span> and/or your breach of this Legal Notice.
+          </p>
+          <p>
+            For any questions or notices, please contact us at
+          </p>
+          <p class="no-padding">
+            <a class="join-email" href="mailto:vollmann.anne@web.de">vollmann.anne@web.de</a>
+          </p>
+          <p class="no-padding">
+            <a class="join-email" href="mailto:sonja.reimann.thanisch@gmail.com">sonja.reimann.thanisch@gmail.com</a>
+          </p>
+          <p>
+            <a class="join-email" href="mailto:ls.nordlicht@gmail.com">ls.nordlicht@gmail.com</a>
+          </p>
+          <p>
+            Date: March 15, 2025
+          </p>
+        </div>
+    </section>
+  </main>
+
+  <section onclick="toggleSubmenu()" id="submenuOverlay" class="submenu-overlay d-none">
+    <div id="submenu" class="submenu" onclick="event.stopImmediatePropagation()">
+        <p class="hide-help-option-desktop"><a href="../html/help.html">Help</a></p>
+        <p><a href="../html/legal_notice.html">Legal Notice</a></p>
+        <p><a href="../html/privacy_policy.html">Privacy Policy</a></p>
+        <p><a href="../index.html">Logout</a></p>
+    </div>
+</section>
+  <script>includeHTML();</script>
+</body>
+
+</html>

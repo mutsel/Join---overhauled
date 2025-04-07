@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Summary</title>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/joinBlue.svg" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/x-icon" href="../assets/icons/joinWhite.svg" media="(prefers-color-scheme: dark)" />
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../styles/root.css">
+  <link rel="stylesheet" href="../styles/navigation.css">
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../styles/summary.css">
+
+  <script src="../script.js"></script>
+  <script src="../scripts/include.js"></script> 
+  <script src="../scripts/summary.js"></script>
+</head>
+
+<body onload="initSummary()">
+  <div w3-include-html="header.html"></div>
+  <div w3-include-html="sidebar.html"></div>
+
+  <main>
+    <section class="title flex align-center">
+      <h1>Join 360</h1>
+      <div class="title-seperator"></div>
+      <p>Key Metrics at a Glance</p>
+    </section>
+
+    <section class="summary-content flex align-center">
+      <div class="summary-overview flex">
+        <div class="summary-row row-one flex">
+          <div onclick="redirectionToBoard()" class="summary-container flex just-center align-center">
+            <div class="summary-icon summary-icon-todo"></div>
+            <p class="flex align-center">
+              <span id="counterTasksToDo" class="summary-number">0</span>
+              <span class="summary-explanation">To-Do</span>
+            </p>
+          </div>
+          <div onclick="redirectionToBoard()" class="summary-container flex just-center align-center">
+            <div class="summary-icon summary-icon-done"></div>
+            <p class="flex align-center">
+              <span id="counterTasksDone" class="summary-number">0</span>
+              <span class="summary-explanation">Done</span>
+            </p>
+          </div>
+        </div>
+
+        <div onclick="redirectionToBoard()" class="summary-row row-two summary-container flex align-center">
+          <div class="deadline-urgent flex just-center align-center">
+            <div class="summary-icon summary-icon-urgent"></div>
+            <p class="flex align-center">
+              <span id="counterTasksUrgent" class="summary-number">0</span>
+              <span class="summary-explanation">Urgent</span>
+            </p>
+          </div>
+          <div class="deadline-seperator"></div>
+          <div class="deadline-date flex just-center align-center">
+            <span id="nextDeadline" class="next-deadline">Month Day, Year</span>
+            <span class="upcoming-deadline">Upcoming Deadline</span>
+          </div>
+        </div>
+
+        <div class="summary-row row-three flex">
+          <div onclick="redirectionToBoard()" class="summary-container flex just-center align-center">
+            <p class="flex align-center">
+              <span id="counterTasksTotal" class="summary-number">0</span>
+              <span class="summary-explanation">Tasks in</span>
+              <span class="summary-explanation">Board</span>
+            </p>
+          </div>
+          <div onclick="redirectionToBoard()" class="summary-container flex just-center align-center">
+            <p class="flex align-center">
+              <span id="counterTasksInProgress" class="summary-number">0</span>
+              <span class="summary-explanation">Tasks in</span>
+              <span class="summary-explanation">Progress</span>
+            </p>
+          </div>
+          <div onclick="redirectionToBoard()" class="summary-container flex just-center align-center">
+            <p class="flex align-center">
+              <span id="counterTasksAwaitingFeedback" class="summary-number">0</span>
+              <span class="summary-explanation">Awaiting</span>
+              <span class="summary-explanation">Feedback</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="summaryGreeting" class="summary-greeting flex">
+        <p id="greetingDaytime" class="greeting-daytime"></p>
+        <p id="greetinguserName" class="greeting-username"></p>
+      </div>
+    </section>
+  </main>
+
+  <section onclick="toggleSubmenu()" id="submenuOverlay" class="submenu-overlay d-none">
+    <div id="submenu" class="submenu" onclick="event.stopImmediatePropagation()">
+      <p class="hide-help-option-desktop"><a href="../html/help.html">Help</a></p>
+      <p><a href="../html/legal_notice.html">Legal Notice</a></p>
+      <p><a href="../html/privacy_policy.html">Privacy Policy</a></p>
+      <p><a href="../index.html">Logout</a></p>
+    </div>
+  </section>
+  <script>includeHTML();</script>
+</body>
+
+</html>

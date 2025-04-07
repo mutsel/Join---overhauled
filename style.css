@@ -1,0 +1,438 @@
+/* basic css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter';
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-gray);
+}
+
+h1 {
+  font-size: var(--fs-61-47);
+  font-weight: 700;
+}
+
+main {
+  max-width: 1688px;
+  margin-left: 232px;
+  overflow: hidden;
+
+  @media (max-width: 900px) {
+    margin-left: 0;
+    margin-bottom: 110px;
+  }
+}
+
+input {
+  height: 48px;
+  padding: 12px 40px 12px 16px;
+  gap: 8px;
+  border: 1px solid var(--clr-lighterGray);
+  border-radius: 10px;
+  color: var(--clr-primary);
+  font-size: 20px;
+  text-overflow: ellipsis;
+  background-repeat: no-repeat;
+  background-position: 95%;
+}
+
+textarea {
+  height: 120px;
+  padding: 12px 16px;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  color: var(--clr-primary);
+  font-family: Inter;
+  font-size: 20px;
+  resize: none;
+}
+
+::-webkit-input-placeholder {
+  color: var(--clr-lighterGray);
+  font-size: var(--fs-20);
+}
+
+textarea:focus,
+input:focus {
+  outline: 1px solid #29ABE2;
+  border: 1px solid transparent;
+}
+
+input[type="text"][name="name"] {
+  background-image: url('./assets/input_user.svg');
+}
+
+input[type="text"][name="search"] {
+  background-image: url('./assets/input_search.svg');
+}
+
+input[type="text"][name="select"] {
+  background-image: url("./assets/down.svg");
+}
+
+input[type="text"][name="select"]:focus {
+  background-image: url("./assets/up.svg");
+}
+
+input[type="email"] {
+  background-image: url('./assets/input_mail.svg');
+}
+
+input[type="tel"] {
+  background-image: url('./assets/input_phone.svg');
+}
+
+input[type="password"] {
+  background-image: url('./assets/input_password.svg');
+}
+
+input[type="password"]:focus {
+  background-image: url('./assets/input_password_visibility_off.svg');
+}
+
+.d-none {
+  display: none !important;
+}
+
+.invisible {
+  color: transparent !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.just-start {
+  justify-content: start;
+}
+
+.just-center {
+  justify-content: center;
+}
+
+.just-space-b {
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 24px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--clr-white);
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* .custom-scrollbar::-webkit-scrollbar-button:vertical:start:increment {
+  background-image: url("../assets/up.svg");
+  background-position: bottom;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:vertical:end:increment {
+  background-image: url("../assets/down.svg");
+  background-position: top;
+} */
+
+.custom-scrollbar::-webkit-scrollbar-button:vertical:start:decrement,
+.custom-scrollbar::-webkit-scrollbar-button:vertical:end:decrement {
+  display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border: 8px solid var(--clr-white);
+  border-radius: 30px;
+  background-color: var(--clr-lighterGray);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--clr-lightGray);
+}
+
+/* for addTasks and board */
+.profile-badge {
+  border: 2px solid var(--clr-white);
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-lighterGray);
+  color: var(--clr-white);
+  font-size: var(--fs-12);
+}
+
+/* for contacts and board
+.overlay-close {
+  align-self: flex-end;
+} */
+
+.overlay-close:hover {
+  cursor: pointer;
+  border-radius: 56px;
+  background-color: var(--clr-lighterGray);
+}
+
+.arrow-backwards {
+  height: 40px;
+  width: 40px;
+}
+
+.arrow-backwards:hover {
+  background-color: #efeaea;
+  border-radius: 50%;
+  transform: scale(1.10);
+  cursor: pointer;
+}
+
+.no-scroll {
+  overflow: clip !important;
+}
+
+.messages {
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: calc(50% + 74px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+
+  @media (max-width: 900px) {
+    bottom: calc(50% + 60px);
+  }
+
+  .succesfull-msg {
+    width: 326px;
+    height: 74px;
+    border-radius: 20px;
+    position: relative;
+    bottom: 50%;
+    left: -300vb;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-primary);
+    box-shadow: var(--shadow-nuevo);
+    color: var(--clr-white);
+    font-size: var(--fs-20);
+    animation-duration: 1800ms;
+
+    @media (max-width: 900px) {
+      width: 300px;
+      height: 60px;
+    }
+  }
+}
+
+/* This is added to the success-messages, when create/edit/delete was succesfully*/
+@keyframes msgSuccesfull {
+  0% {
+    left: -300vb;
+  }
+
+  30% {
+    left: 100%;
+  }
+
+  70% {
+    left: 200%;
+  }
+
+  100% {
+    left: -300vb;
+  }
+}
+
+/** This class is added, when input requirement is unfulfilled **/
+.requirement-unfulfilled {
+  outline: 1px solid #FF001F !important;
+}
+
+button {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-21);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.blue-btn {
+  background: var(--clr-primary);
+  border: none;
+  color: var(--clr-white);
+}
+
+.blue-btn:hover {
+  background-color: var(--clr-lightBlue);
+  box-shadow: var(--shadow-stronger);
+}
+
+.white-btn {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-primary);
+  color: var(--clr-primary);
+}
+
+.white-btn:hover {
+  border: 1px solid var(--clr-lightBlue);
+  box-shadow: var(--shadow-stronger);
+  color: var(--clr-lightBlue);
+}
+
+.input-error {
+  color: #FF001F;
+  font-size: var(--fs-16-12);
+  font-weight: var(--fw-500);
+  line-height: 15.6px;
+  text-align: start;
+  text-wrap: nowrap;
+  pointer-events: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.edit-delete-btns {
+  width: 159px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    height: 24px;
+    max-width: 83px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: var(--fw-400);
+    font-size: var(--fs-16);
+    line-height: 19.2px;
+    background-color: transparent;
+
+    .edit-delete-btn-icon {
+      height: 24px;
+      width: 24px;
+      background-repeat: no-repeat;
+    }
+
+    .edit-icon {
+      background-image: url("../assets/edit.svg");
+    }
+
+    .delete-icon {
+      background-image: url("../assets/delete.svg");
+    }
+  }
+
+  button:hover {
+    color: var(--clr-lightBlue);
+    cursor: pointer;
+  }
+}
+
+.edit-delete-btns button:hover .edit-icon {
+  background-image: url("../assets/edit_hover.svg");
+}
+
+.edit-delete-btns button:hover .delete-icon {
+  background-image: url("../assets/delete_hover.svg");
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    background-color: var(--bg-gray);
+  }
+
+  20% {
+    background-color: var(--bg-gray);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes openOverlay {
+  0% {
+    top: 50%;
+    left: -100vb;
+  }
+
+  100% {
+    top: 50%;
+    left: 50%;
+  }
+}
+
+@keyframes closeOverlay {
+  0% {
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    top: 50%;
+    left: -100vb;
+  }
+}

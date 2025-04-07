@@ -1,0 +1,292 @@
+.no-animation {
+  animation: none !important;
+}
+
+.login-signup-header {
+  height: 100vh;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+
+  .login-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: fadeOut 1s ease-in-out;
+  }
+
+  .join-logo {
+    height: calc(28.438rem - clamp(7.563rem, 43.0617rem + -39.4430vw, 20.875rem));
+    width: calc(23.375rem - clamp(6.25rem, 35.2500rem + -32.2222vw, 17.125rem));
+    position: relative;
+    top: 40px;
+    left: 20px;
+    transform: scale(0.365) translateX(-100%) translateY(-100%);
+    background-image: url("../assets/join_logo_dark.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: moveToTopLeft 1s ease-in-out;
+  }
+
+  .login-redirect-signup {
+    height: fit-content;
+    position: fixed;
+    top: 70px;
+    right: 70px;
+    gap: 30px;
+    animation: fadeIn 1.5s ease-in-out;
+
+    p {
+      font-size: var(--fs-20);
+    }
+
+    button {
+      padding: 15px 16px;
+    }
+  }
+}
+
+.login-signup-container {
+  width: calc(65.5rem - clamp(24.75rem, 67.4167rem + -47.4074vw, 40.75rem));
+  padding: calc(5rem - clamp(2rem, 4.6667rem + -2.9630vw, 3rem)) 16px;
+  border-radius: 30px;
+  gap: 32px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  flex-direction: column;
+  transform: translateX(-50%) translateY(-50%);
+  background: var(--clr-white);
+  box-shadow: var(--shadow-backlog);
+  animation: fadeIn 1.5s ease-in-out;
+
+  .signup-redirect-login {
+    height: 0;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 32px;
+    margin-left: 32px;
+  }
+
+  .title {
+    width: 100%;
+    gap: 16px;
+    flex-direction: column;
+
+    .title-seperator {
+      height: 3px;
+      width: calc(14.875rem - clamp(5.5rem, 15.8333rem + -11.4815vw, 9.375rem));
+      background-color: var(--clr-lightBlue);
+    }
+  }
+
+  form {
+    width: calc(49.125rem - clamp(22.75rem, 32.4167rem + -10.7407vw, 26.375rem));
+    flex-direction: column;
+
+    input {
+      width: 100%;
+      margin-bottom: 32px;
+    }
+
+    .input-error {
+      height: 0;
+      position: relative;
+      bottom: 16px;
+      text-wrap: wrap;
+      text-align: center;
+    }
+
+    .signup-checkbox {
+      input[type="checkbox"] {
+        height: 16px;
+        width: 16px;
+        margin: 0;
+        margin-right: 12px;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      input[type="checkbox"]:checked,
+      input[type="checkbox"]:focus {
+        border: none;
+        outline: none;
+      }
+
+      a {
+        margin-left: 4px;
+        color: var(--clr-lightBlue)
+      }
+    }
+  }
+
+  .submit-btns {
+    gap: 35px;
+
+    button {
+      height: 48px;
+      padding: 15px 24px;
+    }
+  }
+}
+
+.sign-up-alerts {
+  height: 0;
+}
+
+.policy-legals-links {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: calc(3.75rem - clamp(1.25rem, 4.5833rem + -3.7037vw, 2.5rem));
+  gap: 16px;
+  animation: fadeIn 1.5s ease-in-out;
+
+  a {
+    text-decoration: none;
+    color: var(--clr-lightGray);
+  }
+
+  a:hover {
+    color: var(--clr-lightBlue);
+  }
+}
+
+@keyframes moveToTopLeft {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  20% {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  100% {
+    top: 40px;
+    left: 20px;
+    transform: scale(0.365);
+  }
+}
+
+@media (min-width: 1920px) {
+  .login-signup-header {
+    .join-logo {
+      margin-left: calc((100% - 1920px)/2);
+    }
+
+    .login-redirect-signup {
+      margin-right: calc((100% - 1920px)/2);
+    }
+  }
+
+  @keyframes moveToTopLeft {
+    0% {
+      margin-left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    20% {
+      margin-left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+
+    }
+
+    100% {
+      top: 40px;
+      left: 20px;
+      transform: scale(0.365);
+      margin-left: calc((100% - 1920px)/2);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .login-signup-header {
+    .login-redirect-signup {
+      width: 100%;
+      top: unset;
+      right: unset;
+      bottom: 80px;
+    }
+  }
+
+  .login-signup-container {
+    .submit-btns {
+      flex-direction: column;
+      gap: 21px;
+
+      button {
+        width: 180px;
+        padding: 4px;
+      }
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      background-color: var(--clr-primary);
+    }
+
+    20% {
+      background-color: var(--clr-primary);
+    }
+
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  @keyframes moveToTopLeft {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background-image: url("../assets/join_logo_light.svg");
+    }
+
+    20% {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background-image: url("../assets/join_logo_light.svg");
+    }
+
+    100% {
+      top: 5%;
+      left: 20px;
+      transform: scale(0.365);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .login-signup-container {
+    width: calc(43.25rem - clamp(18.5rem, 35.8611rem + -55.5556vw, 24.75rem));
+    gap: 28px;
+
+    .signup-redirect-login {
+      margin-left: calc(2.5rem - clamp(0.5rem, 4.6667rem + -13.3333vw, 2rem));
+    }
+
+    form {
+      width: 100%;
+
+      input {
+        width: 100%;
+        margin-bottom: 28px;
+      }
+    }
+  }
+}
