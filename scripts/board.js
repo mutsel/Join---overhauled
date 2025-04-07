@@ -211,6 +211,7 @@ function displayFilteredTasks(searchInput) {
       if (tasks[indexTask].priority == "") {
         document.getElementById("prio" + indexTask).src = "";
       }
+      moveTaskMenuMobile();
     }
   }
   showNoResultsAlert()
