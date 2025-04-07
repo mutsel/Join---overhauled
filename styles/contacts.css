@@ -313,6 +313,7 @@ html {
     .overlay-close {
         height: 32px;
         width: 32px;
+        align-self: end;
     }
 
     .overlay-contact-inputs {

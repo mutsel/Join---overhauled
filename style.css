@@ -195,11 +195,6 @@ input[type="password"]:focus {
   font-size: var(--fs-12);
 }
 
-/* for contacts and board
-.overlay-close {
-  align-self: flex-end;
-} */
-
 .overlay-close:hover {
   cursor: pointer;
   border-radius: 56px;
