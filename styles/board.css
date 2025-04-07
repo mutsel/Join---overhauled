@@ -281,6 +281,7 @@ main {
 
 .board-overlay::-webkit-scrollbar,
 .add-task-overlay-content::-webkit-scrollbar,
+.overview-overlay-content::-webkit-scrollbar,
 .edit-task-overlay-content::-webkit-scrollbar {
     display: none;
 }
@@ -307,113 +308,114 @@ main {
 }
 
 .board-overview-overlay {
-    height: fit-content;
-    max-height: 100vh;
-    width: calc(51.563rem - clamp(18.75rem, 44.6555rem + -59.2126vw, 32.813rem));
-    padding: 48px 40px;
-    gap: 20px;
-    overflow-y: scroll;
+    max-height: 930px;
 
-    .overview-header {
-        .task-category {
-            height: 36px;
-            padding: 4px 24px;
-            border-radius: 8px;
-            color: white;
-        }
-    }
+    .overview-overlay-content {
+        max-height: 100vh;
+        width: calc(51.563rem - clamp(18.75rem, 44.6555rem + -59.2126vw, 32.813rem));
+        padding: 48px 40px;
+        gap: 20px;
+        overflow-y: scroll;
 
-    .overview-title,
-    .overview-description {
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-    }
-
-    .overview-title {
-        font-size: var(--fs-61-36);
-        font-weight: 700;
-    }
-
-    .overview-info {
-        font-size: 20px;
-        color: #42526E;
-        gap: 25px;
-
-        span {
-            width: 93px;
-        }
-
-        p {
-            color: var(--clr-black);
-
-            img {
-                padding-left: 10px;
+        .overview-header {
+            .task-category {
+                height: 36px;
+                padding: 4px 24px;
+                border-radius: 8px;
+                color: white;
             }
         }
-    }
 
-    .overview-contacts {
-        min-height: fit-content;
-        max-height: 168px;
-        margin-top: -12px;
-        overflow-y: auto;
-    }
-
-    .assigned-contact,
-    .assigned-subtask {
-        padding: 7px 16px;
-        gap: 16px;
-        border-radius: 16px;
-        font-size: var(--fs-20);
-        cursor: default;
-
-        .profile-badge,
-        .assigned-contacts-addition {
-            height: 42px;
-            width: 42px;
+        .overview-title,
+        .overview-description {
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
         }
-    }
 
-    .overview-subtasks {
-        min-height: fit-content;
-        max-height: 114px;
-        margin-top: -12px;
-        overflow-y: auto;
+        .overview-title {
+            font-size: var(--fs-61-36);
+            font-weight: 700;
+        }
 
+        .overview-info {
+            font-size: 20px;
+            color: #42526E;
+            gap: 25px;
+
+            span {
+                width: 93px;
+            }
+
+            p {
+                color: var(--clr-black);
+
+                img {
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        .overview-contacts {
+            max-height: 168px;
+            margin-top: -12px;
+            overflow-y: auto;
+        }
+
+        .assigned-contact,
         .assigned-subtask {
-            cursor: pointer;
+            padding: 7px 16px;
+            gap: 16px;
+            border-radius: 16px;
+            font-size: var(--fs-20);
+            cursor: default;
 
-            .overview-checkbox {
+            .profile-badge,
+            .assigned-contacts-addition {
+                height: 42px;
+                width: 42px;
+            }
+        }
+
+        .overview-subtasks {
+            max-height: 114px;
+            margin-top: -12px;
+            overflow-y: auto;
+
+            .assigned-subtask {
+                cursor: pointer;
+
+                .overview-checkbox {
+                    height: 24px;
+                    width: 24px;
+                }
+
+                .checkbox-completed-true {
+                    background-image: url("../assets/checkbox_active.svg");
+                    filter: invert(1);
+                }
+
+                .checkbox-completed-false {
+                    background-image: url("../assets/checkbox.svg");
+                }
+            }
+
+            .assigned-subtask:hover {
+                background-color: #DCDCDC;
+            }
+        }
+
+        .edit-delete-btns {
+            width: 100%;
+            gap: 8px;
+            justify-content: flex-end;
+
+            .btns-seperator {
                 height: 24px;
-                width: 24px;
+                width: 1px;
+                background-color: #D1D1D1;
             }
-
-            .checkbox-completed-true {
-                background-image: url("../assets/checkbox_active.svg");
-                filter: invert(1);
-            }
-
-            .checkbox-completed-false {
-                background-image: url("../assets/checkbox.svg");
-            }
-        }
-
-        .assigned-subtask:hover {
-            background-color: #DCDCDC;
-        }
-    }
-
-    .edit-delete-btns {
-        width: 100%;
-        gap: 8px;
-        justify-content: flex-end;
-
-        .btns-seperator {
-            height: 24px;
-            width: 1px;
-            background-color: #D1D1D1;
         }
     }
 }

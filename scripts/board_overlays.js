@@ -123,10 +123,11 @@ async function adjustBoardEditTaskOverlay(addTaskOverlayContent, progress, index
 */
 function openTaskOverview(indexTask) {
     openBoardBgOverlay();
-    let overlayContentRef = document.getElementById("overviewOverlay");
-    overlayContentRef.classList.remove("d-none");
+    let overlayRef = document.getElementById("overviewOverlay");
+    let overlayContentRef = document.getElementById("overviewOverlayContent");
+    overlayRef.classList.remove("d-none");
     overlayContentRef.innerHTML = "";
-    overlayContentRef.innerHTML += getTaskOverviewOverlayTemplate(indexTask);
+        overlayContentRef.innerHTML += getTaskOverviewOverlayTemplate(indexTask);
     if (tasks[indexTask].priority == "") {
         document.getElementById("prioOverview" + indexTask).src = "";
     }
@@ -172,7 +173,7 @@ function assignedToOverviewList(indexTask) {
     }
     // shortAssignedToListBoardOverview();
 }
-
+ 
 // /**
 //  * This function checks the number of assigned to contacts for a task. If there are more than five contacts, only the first five are shown and the other ones are hidden.
 //  * The user can see how many more contacts are assigned.
