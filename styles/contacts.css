@@ -128,9 +128,12 @@ html {
 }
 
 .contact-focus {
+    max-height: 100vh;
     padding-top: calc(9.875rem - clamp(3rem, 13.3333rem + -11.4815vw, 6.875rem));
+    padding-bottom: 80px;
     padding-left: calc(5.25rem - clamp(1.75rem, 19.7500rem + -20.0000vw, 3.5rem));
     flex-direction: column;
+    overflow-y: auto;
 
     .title {
         gap: 30px;
@@ -355,7 +358,6 @@ html {
 }
 
 @media (min-width: 901px) {
-
     .contact-btn-mobile,
     .arrow-backwards {
         display: none !important;
@@ -374,8 +376,6 @@ html {
 
     .contact-focus {
         width: 70%;
-        height: calc(100vh - 160px);
-        overflow-y: auto;
         overflow-x: hidden;
 
         .title {
@@ -490,7 +490,7 @@ html {
                     }
                 }
 
-                .cancel-btn-hide-mobile {
+                .btn-hide-mobile {
                     display: none;
                 }
             }
@@ -552,6 +552,7 @@ html {
         padding-right: calc(5rem - clamp(1rem, 5.6552rem + -8.2759vw, 4rem));
         padding-left: calc(5rem - clamp(1rem, 5.6552rem + -8.2759vw, 4rem));
         animation-name: addressBookToContactFocus;
+        
 
         .title {
             .title-seperator {

@@ -223,6 +223,10 @@ main {
     cursor: pointer;
 }
 
+.task-card:active {
+    cursor: grab;
+}
+
 .move-task-menu-content {
     width: 190px;
     padding: 16px 10px;

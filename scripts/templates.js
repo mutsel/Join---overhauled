@@ -300,12 +300,11 @@ function getFocusedContactTemplate(indexContact) {
  * This template creates the two necessary buttons for the contacts-overlay 'Add contact'
  */
 function getContactsOverlayAddBtnsTemplate() {
-    return `<button onclick="clearContactForm(); return false" class="white-btn cancel-btn-hide-mobile" id="contactsOverlayCancel">
+    return `<button onclick="clearContactForm(); return false" class="white-btn btn-hide-mobile" id="contactsOverlayCancel">
                 Cancel
                 <div class="cancel-btn-icon"></div>
             </button>
-            <button id="contactsOverlayCreate" onclick="addContact(); return false"
-                class="blue-btn">
+            <button id="contactsOverlayCreate" onclick="addContact(); return false" class="blue-btn">
                 Create Contact
                 <img src="../assets/create_light.svg">
             </button>`
@@ -321,8 +320,7 @@ function getContactsOverlayEditBtnsTemplate(indexContact) {
                 Clear
                 <div class="cancel-btn-icon"></div>
             </button>
-            <button id="contactsOverlaySave" onclick="saveEditContact(${indexContact}); return false"
-                class="blue-btn">
+            <button id="contactsOverlaySave" onclick="saveEditContact(${indexContact}); return false" class="blue-btn">
                 Save
                 <img src='../assets/create_light.svg'>
             </button>`
