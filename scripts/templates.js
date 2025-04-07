@@ -120,8 +120,10 @@ function getBoardTaskTemplate(indexTask) {
                         <span>${countCompletedSubtasks(indexTask)}/${countTotalSubtasks(indexTask)} Subtasks</span>
                     </div>
                     <div class="assigned-contacts-and-priority flex align-center just-space-b">
-                        <div id="assignedContacts${indexTask}" class="task-assigned-contacts flex"></div>
-                        <div id="assignedContactsAdditionBoard${indexTask}" class="assigned-contacts-addition profile-badge profile-badge-small d-none flex">+<p id="assignedContactsAdditionNumberBoard${indexTask}">0</p></div>
+                        <div class="flex align-center">
+                            <div id="assignedContacts${indexTask}" class="task-assigned-contacts flex"></div>
+                            <div id="assignedContactsAdditionBoard${indexTask}" class="assigned-contacts-addition profile-badge profile-badge-small d-none flex">+<p id="assignedContactsAdditionNumberBoard${indexTask}">0</p></div>
+                        </div>
                         <img id="prio${indexTask}" src="../assets/prio${tasks[indexTask].priority}.svg">
                     </div>
                 </div>
