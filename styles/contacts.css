@@ -31,7 +31,7 @@ html {
 
     .blue-btn {
         height: 53px;
-        width: 53px; 
+        width: 53px;
         border-radius: 46px;
         position: absolute;
         bottom: 100px;
@@ -318,7 +318,7 @@ html {
                     height: 50px;
                     width: 24px;
                     left: -40px;
-                    position: relative; 
+                    position: relative;
                 }
 
                 .contacts-alerts {
@@ -355,6 +355,7 @@ html {
 }
 
 @media (min-width: 901px) {
+
     .contact-btn-mobile,
     .arrow-backwards {
         display: none !important;
@@ -454,7 +455,7 @@ html {
                 height: 0;
                 width: 100%;
                 justify-content: flex-start;
- 
+
                 div {
                     height: 120px;
                     width: 120px;
@@ -503,10 +504,38 @@ html {
         background-color: var(--clr-white);
     }
 
+    .address-book,
+    .contact-focus {
+        position: relative;
+        animation-duration: 0.4s;
+        animation-timing-function: ease-out;
+    }
+
+    @keyframes contactFocusToAddressBook {
+        0% {
+            left: -100%;
+        }
+    
+        100% {
+            left: 0%;
+        }
+    }
+    
+    @keyframes addressBookToContactFocus {
+        0% {
+            right: -100%;
+        }
+    
+        100% {
+            right: 0%;
+        }
+    }
+
     .address-book {
         max-width: 100%;
         height: calc(100vh - 160px);
         padding: 0 28px 0 52px;
+        animation-name: contactFocusToAddressBook;
     }
 
     .contact {
@@ -522,11 +551,17 @@ html {
         width: 100%;
         padding-right: calc(5rem - clamp(1rem, 5.6552rem + -8.2759vw, 4rem));
         padding-left: calc(5rem - clamp(1rem, 5.6552rem + -8.2759vw, 4rem));
+        animation-name: addressBookToContactFocus;
+
         .title {
             .title-seperator {
                 height: 3px;
                 width: 90px;
             }
+        }
+
+        .focused-contact-information {
+            position: static;
         }
     }
 
