@@ -85,28 +85,20 @@ function openContactsOverlay() {
     clearContactForm();
     document.getElementById("overlayBg").classList.remove("d-none");
     document.getElementById("overlayContact").classList.remove("d-none");
-    // document.getElementById("overlayContact").classList.add("animation-open-overlay");
-    // document.getElementById("overlayContact").classList.remove("animation-close-overlay");
-    // setTimeout(function () {
-    //     document.getElementById("overlayContact").classList.remove("animation-open-overlay");
-    // }, 2400);
+    document.getElementById("overlayBg").style.animationName = "openBgOverlay";
+    document.getElementById("overlayContact").style.animationName = "openOverlay";
 }
 
 /**
  * This function opens the ContactsOverlay 
  */
 function closeContactsOverlay() {
-    document.getElementById("menuEditDeleteMobile").classList.add("d-none");
-    document.getElementById("overlayInvisible").classList.add("d-none");
+    document.getElementById("overlayBg").style.animationName = "closeBgOverlay";
+    document.getElementById("overlayContact").style.animationName = "closeOverlay";
     setTimeout(function () {
         document.getElementById("overlayContact").classList.add("d-none");
         document.getElementById("overlayBg").classList.add("d-none");
-    }, 250);
-    // document.getElementById("overlayContact").classList.add("animation-close-overlay");
-    // document.getElementById("overlayContact").classList.remove("animation-open-overlay");
-    // setTimeout(function () {
-    //     document.getElementById("overlayContact").classList.remove("animation-close-overlay");
-    // }, 2400);
+    }, 600);
 }
 
 /**
@@ -208,7 +200,7 @@ function contactClicked(indexContact) {
         document.getElementById("addresbookHideMobile").classList.add("d-none");
         document.getElementById("contactFocus").style.display = "flex";
         document.getElementById("addNewContactBtnMobile").classList.add("d-none");
-        document.getElementById("btnsMenuMobile").classList.remove("d-none");
+        document.getElementById("editContactBtnMobile").classList.remove("d-none");
         document.getElementById("arrowBackwardsMobile").classList.remove("d-none");
     }
     clearActiveContacts();
@@ -223,7 +215,7 @@ function contactClicked(indexContact) {
 function mobileArrowBackwards() {
     document.getElementById("contactFocus").style.display = "none";
     document.getElementById("addresbookHideMobile").classList.remove("d-none");
-    document.getElementById("btnsMenuMobile").classList.add("d-none");
+    document.getElementById("editContactBtnMobile").classList.add("d-none");
     document.getElementById("addNewContactBtnMobile").classList.remove("d-none");
 }
 
@@ -253,15 +245,15 @@ function updateFocusedContact(indexContact) {
     let focusedContactRef = document.getElementById("focusedContactInformation");
     focusedContactRef.innerHTML = "";
     setTimeout(() => {
+        focusedContactRef.style.animationName ="openFocusedContact";
         focusedContactRef.innerHTML = getFocusedContactTemplate(indexContact);
         profileBadgeColor("focusedProfileBadge", indexContact);
-        // focusedContactRef.classList.add("animation-focused-contact");
         if (indexContact == indexContactUser) {
             adjustUserContact("idFocusedName");
             document.getElementById("deleteBtnContacts").classList.add("d-none");
         }
     }, 250)
-    // focusedContactRef.classList.remove("animation-focused-contact");
+    focusedContactRef.style.animationName ="unset";
 }
 
 /**

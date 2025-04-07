@@ -202,75 +202,74 @@
                 <img id="arrowBackwardsMobile" class="arrow-backwards" onclick="mobileArrowBackwards()"
                     src="../assets/arrow_backwards.svg">
             </div>
-            <div id="focusedContactInformation"></div>
+            <div id="focusedContactInformation" class="focused-contact-information"></div>
         </section>
     </main>
 
-    <section onclick="closeContactsOverlay()" id="overlayBg" class="overlay overlay-bg d-none">
-        <section onclick="event.stopPropagation()" id="overlayContact" class="overlay-contact">
-            <div class="overlay-title flex just-center">
-                <img class="join-logo" src="../assets/join_logo_light.svg">
-                <h1 id="overlayTitleH1">Add contact</h1>
-                <p id="overlayTitleP">Tasks are better with a team!</p>
-                <div class="overlay-title-seperator"></div>
+    <section id="overlayContact" class="overlay-contact d-none">
+        <div class="overlay-title flex just-center">
+            <img class="join-logo" src="../assets/join_logo_light.svg">
+            <h1 id="overlayTitleH1">Add contact</h1>
+            <p id="overlayTitleP">Tasks are better with a team!</p>
+            <div class="overlay-title-seperator"></div>
+        </div>
+        <div class="overlay-contact-information flex">
+            <div class="overlay-close">
+                <img onclick="closeContactsOverlay()" src="../assets/cancel.svg">
             </div>
-            <div class="overlay-contact-information flex">
-                <div class="overlay-close">
-                    <img onclick="closeContactsOverlay()" src="../assets/cancel.svg">
+            <div class="overlay-contact-inputs flex align-center just-space-b">
+                <div class="profile-badge">
+                    <div id="overlayProfileBadge" class="profile-badge"></div>
                 </div>
-                <div class="overlay-contact-inputs flex align-center just-space-b">
-                    <div class="profile-badge">
-                        <div id="overlayProfileBadge" class="profile-badge"></div>
-                    </div> 
-                    <form class="overlay-form flex">
-                        <div class="overlay-input flex">
-                            <input onblur="checkFilledInput('addContactName')" id="addContactName" type="text"
-                                name="name" placeholder="Name" required minlength="1" maxlength="30">
-                            <div class="contacts-alerts">
-                                <span id="alertName" class="input-error invisible">Please enter a valid name</span>
-                            </div>
+                <form class="overlay-form flex">
+                    <div class="overlay-input flex">
+                        <input onblur="checkFilledInput('addContactName')" id="addContactName" type="text" name="name"
+                            placeholder="Name" required minlength="1" maxlength="30">
+                        <div class="contacts-alerts">
+                            <span id="alertName" class="input-error invisible">Please enter a valid name</span>
                         </div>
- 
-                        <div class="overlay-input flex">
-                            <input onkeydown="onlyAllowMailAddress(event)" onblur="checkFilledInput('addContactMail')"
-                                id="addContactMail" type="email" placeholder="Email" required minlength="1"
-                                maxlength="30">
-                            <div class="contacts-alerts">
-                                <span id="alertMail" class="input-error invisible">Please enter a valid email
-                                    address</span>
-                            </div>
-                        </div>
-                        <div class="overlay-input flex">
-                            <input onkeydown="onlyAllowNumbers(event)" onblur="checkFilledInput('addContactPhone')"
-                                id="addContactPhone" type="tel" placeholder="Phone" required minlength="1"
-                                maxlength="18">
-                            <div class="contacts-alerts">
-                                <span id="alertPhone" class="input-error invisible">Please enter a valid phone
-                                    number</span>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div id="contactsSubmitBtns" class="contact-submit-btns flex"></div>
-                    </form>
-                </div>
+                    <div class="overlay-input flex">
+                        <input onkeydown="onlyAllowMailAddress(event)" onblur="checkFilledInput('addContactMail')"
+                            id="addContactMail" type="email" placeholder="Email" required minlength="1" maxlength="30">
+                        <div class="contacts-alerts">
+                            <span id="alertMail" class="input-error invisible">Please enter a valid email
+                                address</span>
+                        </div>
+                    </div>
+                    <div class="overlay-input flex">
+                        <input onkeydown="onlyAllowNumbers(event)" onblur="checkFilledInput('addContactPhone')"
+                            id="addContactPhone" type="tel" placeholder="Phone" required minlength="1" maxlength="18">
+                        <div class="contacts-alerts">
+                            <span id="alertPhone" class="input-error invisible">Please enter a valid phone
+                                number</span>
+                        </div>
+                    </div>
+
+                    <div id="contactsSubmitBtns" class="contact-submit-btns flex"></div>
+                </form>
             </div>
-        </section>
+        </div>
     </section>
 
-    <section onclick="closeContactsOverlay()" id="overlayInvisible" class="overlay overlay-invisible d-none"></section>
+    <section onclick="closeContactsOverlay()" id="overlayBg" class="bg-overlay d-none"></section>
 
-    <section id="btnsMenuMobile" class="contact-btn-mobile">
-        <button onclick="toggleEditDeleteMenuMobile()" class="blue-btn flex just-center">
-            <img src="../assets/contacts_edit_delete_menu_mobile.svg" alt="edit/delete contact">
-        </button>
-        <div id="menuEditDeleteMobile" class="contact-edit-delete-menu-mobile edit-delete-btns d-none"></div>
-    </section>
+    <section onclick="toggleEditDeleteMenuMobile()" id="overlayInvisible" class="invisible-overlay d-none"></section>
 
     <section id="addNewContactBtnMobile" class="contact-btn-mobile">
         <button onclick="openContactsOverlay(), adjustOverlayToAdd()" class="blue-btn flex just-center">
             <img src="../assets/contacts_add.svg" alt="add contact">
         </button>
     </section>
+
+    <section id="editContactBtnMobile" class="contact-btn-mobile d-none">
+        <button onclick="toggleEditDeleteMenuMobile()" class="blue-btn flex just-center">
+            <img src="../assets/contacts_edit_delete_menu_mobile.svg" alt="edit/delete contact">
+        </button>
+    </section>
+
+    <section id="menuEditDeleteMobile" class="contact-edit-delete-menu-mobile edit-delete-btns d-none"></section>
 
     <section class="messages">
         <div id="contactSuccesfullyCreated" class="succesfull-msg">

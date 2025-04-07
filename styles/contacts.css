@@ -37,28 +37,28 @@ html {
         bottom: 100px;
         right: 20px;
     }
+}
 
-    .contact-edit-delete-menu-mobile {
-        height: 100px;
-        width: 116px;
-        padding: 10px;
-        position: absolute;
-        bottom: 94px;
-        right: 14px;
-        border-radius: 20px;
-        border-bottom-right-radius: 0px;
-        background-color: var(--clr-white);
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        z-index: 6;
-        box-shadow: var(--shadow-stronger);
+.contact-edit-delete-menu-mobile {
+    height: 100px;
+    width: 116px;
+    padding: 10px;
+    position: fixed;
+    bottom: 94px;
+    right: 14px;
+    border-radius: 20px;
+    border-bottom-right-radius: 0px;
+    background-color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    z-index: 6;
+    box-shadow: var(--shadow-stronger);
 
-        button {
-            height: fit-content;
-            max-width: fit-content;
-            padding: 8px;
-        }
+    button {
+        height: fit-content;
+        max-width: fit-content;
+        padding: 8px;
     }
 }
 
@@ -146,24 +146,23 @@ html {
             font-size: var(--fs-27-20);
         }
     }
+
+    .focused-contact-information {
+        position: relative;
+        animation-duration: 0.4s;
+        animation-timing-function: ease-out;
+    }
 }
 
-/* .animation-focused-contact {
-    position: relative;
-    animation: showFocusedContact;
-    animation-duration: 300ms;
-    animation-timing-function: ease-out;
-}
-
-@keyframes showFocusedContact {
-    from {
+@keyframes openFocusedContact {
+    0% {
         right: -100%;
     }
 
-    to {
+    100% {
         right: 0%;
     }
-} */
+}
 
 .focused-profile-overview {
     padding-top: 32px;
@@ -221,46 +220,15 @@ html {
     }
 }
 
-.overlay-invisible {
+.invisible-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 5;
-    background-color: rgb(0, 0, 0, 0.3);
+    background: transparent;
 }
-
-.overlay-bg {
-    z-index: 5;
-    background-color: rgb(0, 0, 0, 0.3);
-    transition-property: all;
-    transition-duration: 300ms;
-    transition-timing-function: linear;
-}
-
-/* .animation-open-overlay {
-    animation: openOverlay;
-}
-
-@keyframes openOverlay {
-    from {
-        left: 200%;
-    }
-
-    to {
-        left: 50%;
-    }
-}
-
-.animation-close-overlay {
-    animation: closeOverlay;
-}
-
-@keyframes closeOverlay {
-    from {
-        left: 50%;
-    }
-
-    to {
-        left: 200%;
-    }
-} */
 
 .overlay-contact {
     height: 100vh;
@@ -271,6 +239,9 @@ html {
     display: flex;
     transform: translate(-50%, -50%);
     overflow-y: scroll;
+    z-index: 6;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
 }
 
 .overlay-contact::-webkit-scrollbar {
@@ -384,7 +355,6 @@ html {
 }
 
 @media (min-width: 901px) {
-
     .contact-btn-mobile,
     .arrow-backwards {
         display: none !important;
@@ -564,7 +534,7 @@ html {
         gap: 20px;
 
         .focused-profile-account {
-            .focused-profile-btns {
+            .edit-delete-btns {
                 display: none;
             }
         }
