@@ -110,7 +110,8 @@ function adjustOverlayToAdd() {
     document.getElementById("overlayTitleP").innerHTML = "Tasks are better with a team!";
     document.getElementById("overlayProfileBadge").style.backgroundColor = "#D1D1D1";
     document.getElementById("overlayProfileBadge").innerHTML = "<img src='../assets/contacts_pb_anonymous.svg'>";
-    document.getElementById("contactsSubmitBtns").innerHTML = getContactsOverlayAddBtnsTemplate();
+    document.getElementById("contactsAddSubmitBtns").classList.remove("d-none");
+    document.getElementById("contactsEditSubmitBtns").classList.add("d-none");
 }
 
 /**
@@ -126,7 +127,9 @@ function adjustOverlayToEdit(indexContact) {
     document.getElementById("addContactPhone").value = contacts[indexContact].phone;
     profileBadgeColor("overlayProfileBadge", indexContact);
     document.getElementById("overlayProfileBadge").innerHTML = nameAbbreviation(indexContact);
-    document.getElementById("contactsSubmitBtns").innerHTML = getContactsOverlayEditBtnsTemplate(indexContact);
+    document.querySelector(".index-contact").id = indexContact;
+    document.getElementById("contactsEditSubmitBtns").classList.remove("d-none");
+    document.getElementById("contactsAddSubmitBtns").classList.add("d-none");
 }
 
 /**
@@ -258,12 +261,12 @@ function updateFocusedContact(indexContact) {
 
 /**
  * This function reads out the data of the add-contact-form and sends it to firebase to replace the previous contacts-data
- * 
- * @param {number} indexContact - the index of the contact in the contacts-array
  */
-async function saveEditContact(indexContact) {
+async function saveEditContact() {
     let contactName = validateNameInput("addContactName");
     let contactMail = validateMailInput("addContactMail");
+    let indexContact = document.querySelector(".index-contact").id;
+    console.log(indexContact);
     if (indexContact !== indexContactUser) {
         if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "") {
             await putData("/contacts/" + contacts[indexContact].url, {

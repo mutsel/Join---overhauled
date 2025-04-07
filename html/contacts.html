@@ -247,7 +247,28 @@
                         </div>
                     </div>
 
-                    <div id="contactsSubmitBtns" class="contact-submit-btns flex"></div>
+                    <div id="contactsAddSubmitBtns" class="contact-submit-btns d-none">
+                        <button onclick="clearContactForm(); return false" class="white-btn btn-hide-mobile">
+                            Cancel
+                            <div class="cancel-btn-icon"></div>
+                        </button>
+                        <button onclick="addContact(); return false" class="blue-btn">
+                            Create Contact
+                            <img src="../assets/create_light.svg">
+                        </button>
+                    </div>
+
+                    <div id="contactsEditSubmitBtns" class="contact-submit-btns d-none">
+                        <button onclick="clearContactForm(); return false" class="white-btn">
+                            Clear
+                            <div class="cancel-btn-icon"></div>
+                        </button>
+                        <button id="indexContact" onclick="saveEditContact(); return false"
+                            class="blue-btn index-contact">
+                            Save
+                            <img src='../assets/create_light.svg'>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -335,6 +335,7 @@ html {
             .contact-submit-btns {
                 padding-top: 24px;
                 gap: 25px;
+                display: flex;
 
                 button {
                     padding: 16px;
@@ -548,12 +549,14 @@ html {
     }
 
     .contact-focus {
+        height: 100%;
         width: 100%;
+        bottom: 80px;
+        padding-top: 128px;
         padding-right: calc(5rem - clamp(1rem, 5.6552rem + -8.2759vw, 4rem));
         padding-left: calc(5rem - clamp(1rem, 5.6552rem + -8.2759vw, 4rem));
         animation-name: addressBookToContactFocus;
         
-
         .title {
             .title-seperator {
                 height: 3px;

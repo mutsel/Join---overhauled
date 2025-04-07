@@ -296,36 +296,6 @@ function getFocusedContactTemplate(indexContact) {
             </div>`
 }
 
-/**
- * This template creates the two necessary buttons for the contacts-overlay 'Add contact'
- */
-function getContactsOverlayAddBtnsTemplate() {
-    return `<button onclick="clearContactForm(); return false" class="white-btn btn-hide-mobile" id="contactsOverlayCancel">
-                Cancel
-                <div class="cancel-btn-icon"></div>
-            </button>
-            <button id="contactsOverlayCreate" onclick="addContact(); return false" class="blue-btn">
-                Create Contact
-                <img src="../assets/create_light.svg">
-            </button>`
-}
-
-/**
- * This template creates the two necessary buttons for the contacts-overlay 'Edit contact'
- * 
- * @param {number} indexContact - the index of the contact in the contacts-array
- */
-function getContactsOverlayEditBtnsTemplate(indexContact) {
-    return `<button onclick="clearContactForm(); return false" class="white-btn" id="contactsOverlayDelete">
-                Clear
-                <div class="cancel-btn-icon"></div>
-            </button>
-            <button id="contactsOverlaySave" onclick="saveEditContact(${indexContact}); return false" class="blue-btn">
-                Save
-                <img src='../assets/create_light.svg'>
-            </button>`
-}
-
 /** 
  * This template creates the two necessary buttons for the "btnsMenuMobile" to edit or delete a contact
  * 
