@@ -176,7 +176,7 @@ body::-webkit-scrollbar {
   100% {
     top: 40px;
     left: 20px;
-    transform: scale(0.365);
+    transform: scale(0.365) translateX(-100%) translateY(-100%);
   }
 }
 
@@ -238,7 +238,7 @@ body::-webkit-scrollbar {
     100% {
       top: 40px;
       left: 20px;
-      transform: scale(0.365);
+      transform: scale(0.365) translateX(-100%) translateY(-100%);
       margin-left: calc((100% - 1920px)/2);
     }
   }
@@ -298,7 +298,7 @@ body::-webkit-scrollbar {
     100% {
       top: 5%;
       left: 20px;
-      transform: scale(0.365);
+      transform: scale(0.365) translateX(-100%) translateY(-100%);
     }
   }
 }
