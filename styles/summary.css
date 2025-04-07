@@ -1,3 +1,7 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .title {
   padding-top: calc(9.875rem - clamp(3rem, 13.3333rem + -11.4815vw, 6.875rem));
   padding-left: calc(7rem - clamp(1rem, 14.3333rem + -14.8148vw, 6rem));
