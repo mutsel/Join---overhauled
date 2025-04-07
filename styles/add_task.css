@@ -236,10 +236,6 @@ textarea::-webkit-scrollbar-thumb:hover,
 .add-task-subtasks {
     input {
         width: 100%;
-        padding-right: 40px;
-    }
-
-    input:focus {
         padding-right: 72px;
     }
 
