@@ -144,7 +144,6 @@ main {
         border-radius: 24px;
         background: var(--clr-white);
         box-shadow: 0px 0px 10px 3px #00000014;
-        cursor: pointer;
 
         .task-category {
             height: 27px;
@@ -215,6 +214,13 @@ main {
             }
         }
     }
+}
+
+.task-card:hover {
+    transform: rotateZ(5deg);
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.1s;
+    cursor: pointer;
 }
 
 .move-task-menu-content {
