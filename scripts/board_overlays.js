@@ -15,7 +15,7 @@ function closeOverlays() {
     document.querySelector("html").classList.remove("no-scroll");
     renderTasks();
     toggleMessageNoTasks();
-}
+} 
 
 /**
  * This function opens the background overlay for board-overlays
@@ -170,28 +170,28 @@ function assignedToOverviewList(indexTask) {
         }
         profileBadgeColor(indexTask + "overviewAssignedToListPB" + indexContact, indexContact)
     }
-    shortAssignedToListBoardOverview();
+    // shortAssignedToListBoardOverview();
 }
 
-/**
- * This function checks the number of assigned to contacts for a task. If there are more than five contacts, only the first five are shown and the other ones are hidden.
- * The user can see how many more contacts are assigned.
- */
-function shortAssignedToListBoardOverview() {
-    let numberAssignedContacts = document.querySelectorAll(".overview-contact-assigned");
-    document.getElementById("assignedContactsAdditionNumberBoardOverview").innerHTML = (numberAssignedContacts.length - 5);
-    if (numberAssignedContacts.length > 5) {
-        for (let indexAssignedContact = 5; indexAssignedContact < numberAssignedContacts.length; indexAssignedContact++) {
-            numberAssignedContacts[indexAssignedContact].classList.add("d-none");
-        }
-        document.getElementById("assignedContactsAdditionBoardOverview").classList.remove("d-none");
-    } else {
-        for (let indexAssignedContact = 0; indexAssignedContact < numberAssignedContacts.length; indexAssignedContact++) {
-            numberAssignedContacts[indexAssignedContact].classList.remove("d-none");
-        }
-        document.getElementById("assignedContactsAdditionBoardOverview").classList.add("d-none");
-    }
-}
+// /**
+//  * This function checks the number of assigned to contacts for a task. If there are more than five contacts, only the first five are shown and the other ones are hidden.
+//  * The user can see how many more contacts are assigned.
+//  */
+// function shortAssignedToListBoardOverview() {
+//     let numberAssignedContacts = document.querySelectorAll(".overview-contact-assigned");
+//     document.getElementById("assignedContactsAdditionNumberBoardOverview").innerHTML = (numberAssignedContacts.length - 5);
+//     if (numberAssignedContacts.length > 5) {
+//         for (let indexAssignedContact = 5; indexAssignedContact < numberAssignedContacts.length; indexAssignedContact++) {
+//             numberAssignedContacts[indexAssignedContact].classList.add("d-none");
+//         }
+//         document.getElementById("assignedContactsAdditionBoardOverview").classList.remove("d-none");
+//     } else {
+//         for (let indexAssignedContact = 0; indexAssignedContact < numberAssignedContacts.length; indexAssignedContact++) {
+//             numberAssignedContacts[indexAssignedContact].classList.remove("d-none");
+//         }
+//         document.getElementById("assignedContactsAdditionBoardOverview").classList.add("d-none");
+//     }
+// }
 
 /**
 * This function is part of the fillTaskOverviewLists()-function and displays the subtasks on the board-overview-overlay

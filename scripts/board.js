@@ -163,7 +163,7 @@ function toggleMessageNoTasks() {
   }
 }
 
-/**
+/** 
  * This function checks toggles the visibility of the "move-task-menu-mobile-btn", depending if the user uses a mobile device or not
  */
 function moveTaskMenuMobile() {

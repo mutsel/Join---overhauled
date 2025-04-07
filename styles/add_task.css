@@ -43,11 +43,6 @@ textarea::-webkit-scrollbar-thumb:hover,
     color: #FF8090;
 }
 
-.profile-badge {
-    height: 42px;
-    width: 42px;
-}
-
 .task-content {
     max-width: 978px;
     margin: 0 calc(7rem - clamp(1rem, 14.3333rem + -14.8148vw, 6rem));
@@ -133,6 +128,11 @@ textarea::-webkit-scrollbar-thumb:hover,
             .flex {
                 gap: 16px;
                 font-size: var(--fs-20-16);
+
+                .profile-badge {
+                    height: 42px;
+                    width: 42px;
+                }
             }
 
             .dropdown-option-checkbox {
@@ -169,6 +169,11 @@ textarea::-webkit-scrollbar-thumb:hover,
 .assigned-to-list,
 .assigned-to-list-content {
     gap: 8px;
+
+    .profile-badge {
+        height: 42px;
+        width: 42px;
+    }
 }
 
 .add-task-date {
@@ -471,7 +476,8 @@ textarea::-webkit-scrollbar-thumb:hover,
 @media (max-width: 500px) {
     .add-task-date {
         padding: 8px 12px;
-    } 
+    }
+
     .task-content {
         padding-right: 12px;
         padding-left: 12px;

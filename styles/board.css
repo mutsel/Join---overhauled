@@ -205,12 +205,13 @@ main {
         .assigned-contacts-and-priority {
             .task-assigned-contacts {
                 margin-left: 10px;
+            }
 
-                .profile-badge {
-                    height: 32px;
-                    width: 32px;
-                    margin-left: -10px;
-                }
+            .profile-badge,
+            .assigned-contacts-addition {
+                height: 32px;
+                width: 32px;
+                margin-left: -10px;
             }
         }
     }
@@ -353,9 +354,11 @@ main {
         }
     }
 
-    .overview-contacts,
-    .overview-subtasks {
+    .overview-contacts {
+        min-height: fit-content;
+        max-height: 168px;
         margin-top: -12px;
+        overflow-y: auto;
     }
 
     .assigned-contact,
@@ -365,28 +368,41 @@ main {
         border-radius: 16px;
         font-size: var(--fs-20);
         cursor: default;
+
+        .profile-badge,
+        .assigned-contacts-addition {
+            height: 42px;
+            width: 42px;
+        }
     }
 
-    .assigned-subtask {
-        cursor: pointer;
-    }
+    .overview-subtasks {
+        min-height: fit-content;
+        max-height: 114px;
+        margin-top: -12px;
+        overflow-y: auto;
 
-    .overview-checkbox {
-        height: 24px;
-        width: 24px;
-    }
+        .assigned-subtask {
+            cursor: pointer;
 
-    .checkbox-completed-true {
-        background-image: url("../assets/checkbox_active.svg");
-        filter: invert(1);
-    }
+            .overview-checkbox {
+                height: 24px;
+                width: 24px;
+            }
 
-    .checkbox-completed-false {
-        background-image: url("../assets/checkbox.svg");
-    }
+            .checkbox-completed-true {
+                background-image: url("../assets/checkbox_active.svg");
+                filter: invert(1);
+            }
 
-    .assigned-subtask:hover {
-        background-color: #DCDCDC;
+            .checkbox-completed-false {
+                background-image: url("../assets/checkbox.svg");
+            }
+        }
+
+        .assigned-subtask:hover {
+            background-color: #DCDCDC;
+        }
     }
 
     .edit-delete-btns {
