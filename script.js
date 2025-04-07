@@ -1,4 +1,4 @@
-const BASE_URL = "https://join-424-project-default-rtdb.europe-west1.firebasedatabase.app/"
+const BASE_URL = "https://join-bc94f-default-rtdb.europe-west1.firebasedatabase.app/"
 
 let users = [];
 let tasks = [];
@@ -12,7 +12,7 @@ let filteredTasks = [];
 let previousLocation;
 
 const colors = [
-  "#ff7a00", // Vivid Orange
+  "#ff7a00", // Vivid Orange 
   "#ff5eb3", // Deep Pink 
   "#6e52ff", // Lavender Blue
   "#9327ff", // Violet
