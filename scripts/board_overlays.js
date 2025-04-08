@@ -74,6 +74,7 @@ function openBoardAddTaskOverlay(addTaskOverlayContent, progress) {
     adjustAddTaskProgress(progress);
     clearTaskForm();
     fillAssignedToDropDownMenu();
+    datepickerDisablePastDates();
 }
 
 /**
@@ -95,6 +96,7 @@ function openBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) {
     document.getElementById(indexTask).classList.add("progress-" + progress);
     fillEditTaskInputs(indexTask);
     fillAssignedToDropDownMenu();
+    datepickerDisablePastDates()
 }
 
 /**
@@ -163,6 +165,16 @@ function assignedToOverviewList(indexTask) {
         }
         profileBadgeColor(indexTask + "overviewAssignedToListPB" + indexContact, indexContact)
     }
+}
+
+/**
+ * This function disables past dates to get picked.
+ */
+function datepickerDisablePastDates() {
+    let currentYear = new Date().getFullYear();
+    let currentMonth = ((new Date().getMonth() + 1).toString()).padStart(2, "0");
+    let currentDay = (new Date().getDate().toString()).padStart(2, "0");
+    document.getElementById("addTaskDate").min = currentYear + "-" + currentMonth + "-" + currentDay;
 }
 
 /**

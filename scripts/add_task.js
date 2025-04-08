@@ -4,14 +4,15 @@
 async function initAddTask() {
     await init();
     clearTaskForm();
-    fillAssignedToDropDownMenu();  
+    fillAssignedToDropDownMenu();
+    datepickerDisablePastDates();
 }
 
 /**
  * This function clears and resets the add-task-form (input-values, drop-down-menus and buttons)
  */
 async function clearTaskForm() {
-    document.querySelectorAll("input").forEach((element) => {element.value = ""});
+    document.querySelectorAll("input").forEach((element) => { element.value = "" });
     document.getElementById("addTaskDescription").value = "";
     clearAssignedTo();
     clearPriorityBtns();
@@ -173,7 +174,7 @@ function startSearchingContacts() {
     searchInputRef.focus();
     classListAssignedContacts();
 }
- 
+
 /**
  * This function fills the dropdownlist with the filtered elements.
  * 
@@ -224,6 +225,16 @@ function classListAssignedContacts() {
         document.getElementById("assignedToUserOption" + indexContactUser).classList.add("dropdown-option-assigned");
         document.getElementById("assignedToCheckbox" + indexContactUser).classList.add("dropdown-option-checkbox-assigned");
     }
+}
+
+/**
+ * This function disables past dates to get picked.
+ */
+function datepickerDisablePastDates() {
+    let currentYear = new Date().getFullYear();
+    let currentMonth = ((new Date().getMonth() + 1).toString()).padStart(2, "0");
+    let currentDay = (new Date().getDate().toString()).padStart(2, "0");
+    document.getElementById("addTaskDate").min = currentYear + "-" + currentMonth + "-" + currentDay;
 }
 
 /**
