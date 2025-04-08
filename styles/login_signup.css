@@ -97,7 +97,7 @@ body::-webkit-scrollbar {
       margin-bottom: 32px;
     }
 
-    .input-error {
+    .login-error {
       height: 0;
       position: relative;
       bottom: 16px;
@@ -140,6 +140,19 @@ body::-webkit-scrollbar {
 
 .sign-up-alerts {
   height: 0;
+  gap: 64px;
+  align-self: flex-start;
+  transform: translateY(-285px);
+
+  .input-error {
+    position: relative;
+    margin-left: 8px;
+  }
+
+  .checkbox-error {
+    bottom: 26px;
+    left: calc(9.375rem - clamp(3.75rem, 8.7500rem + -5.5556vw, 5.625rem));
+  }
 }
 
 .policy-legals-links {
@@ -319,6 +332,16 @@ body::-webkit-scrollbar {
         width: 100%;
         margin-bottom: 28px;
       }
+    }
+  }
+
+  .sign-up-alerts {
+    gap: 60px;
+    transform: translateY(-272px);
+  
+    .checkbox-error {
+      bottom: 28px;
+      left: calc(4.5rem - clamp(0.75rem, 9.0833rem + -26.6667vw, 3.75rem));
     }
   }
 }

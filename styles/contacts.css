@@ -470,7 +470,7 @@ html {
 
             .overlay-form {
                 padding: 0;
-                gap: 15px;
+                gap: 22px;
                 flex-direction: column;
 
                 .overlay-input {
@@ -478,6 +478,10 @@ html {
                         height: 41px;
                         width: 100%;
                         max-width: 364px;
+                    }
+
+                    .contacts-alerts {
+                        margin-top: 0;
                     }
                 }
 
@@ -645,11 +649,15 @@ html {
             }
 
             .overlay-form {
-                gap: 12px;
+                gap: 18px;
 
                 .overlay-input {
                     .overlay-input-icon img {
                         height: 36px;
+                    }
+
+                    .contacts-alerts {
+                        margin-top: -3px;
                     }
                 }
 

@@ -478,9 +478,14 @@ main {
 
         .add-task-footer {
             padding-bottom: 0;
+            justify-content: end;
 
             .add-task-requirements {
                 display: none;
+            }
+
+            .add-task-alerts {
+                margin-right: calc(16.875rem - clamp(7.5rem, 12.5000rem + -5.5556vw, 9.375rem));
             }
         }
     }
@@ -632,5 +637,15 @@ main {
         height: calc(100% - 370px);
         left: 0;
         width: 100%;
+    }
+
+    .board-edit-task-overlay {
+        .edit-task-overlay-content {
+            .add-task-footer {
+                .add-task-alerts {
+                    margin-right: 0;
+                }
+            }
+        }
     }
 }

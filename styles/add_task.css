@@ -21,7 +21,7 @@ textarea::-webkit-scrollbar,
 .subtasks-list::-webkit-scrollbar {
     width: 8px;
 }
-
+ 
 textarea::-webkit-scrollbar-track,
 .subtasks-list::-webkit-scrollbar-track {
     background: transparent;
@@ -460,10 +460,11 @@ textarea::-webkit-scrollbar-thumb:hover,
             flex-direction: column;
 
             .add-task-alerts {
-                justify-content: flex-start;
+                align-self: flex-end;
 
                 .input-error {
-                    transform: translateX(90%) translateY(-24px);
+                    transform: translateX(-210px) translateY(-20px);
+                    margin-left: clamp(0rem, 3.3750rem + -6.0000vw, 1.5rem);
                 }
             }
 
@@ -523,12 +524,6 @@ textarea::-webkit-scrollbar-thumb:hover,
         }
 
         .add-task-submit {
-            .add-task-alerts {
-                .input-error {
-                    transform: translateX(56%) translateY(-24px);
-                }
-            }
-
             .add-task-submit-btns {
                 gap: 16px;
 
