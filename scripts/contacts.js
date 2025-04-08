@@ -21,12 +21,12 @@ function adjustToWindowSize() {
         if (document.querySelector('.contact-clicked')) {
             document.getElementById("addresbookHideMobile").classList.add("d-none");
             document.getElementById("contactFocus").style.display = "flex";
-            document.getElementById("btnsMenuMobile").classList.remove("d-none");
+            document.getElementById("editContactBtnMobile").classList.remove("d-none");
             document.getElementById("addNewContactBtnMobile").classList.add("d-none");
         } else {
             document.getElementById("addresbookHideMobile").classList.remove("d-none");
             document.getElementById("contactFocus").style.display = "none";
-            document.getElementById("btnsMenuMobile").classList.add("d-none");
+            document.getElementById("editContactBtnMobile").classList.add("d-none");
             document.getElementById("addNewContactBtnMobile").classList.remove("d-none");
         }
     } else {
@@ -136,7 +136,7 @@ function adjustOverlayToEdit(indexContact) {
  * This function clears the input-values of the contact-overlay-form
  */
 function clearContactForm() {
-    document.querySelectorAll("input").forEach((element) => {element.value = ""});
+    document.querySelectorAll("input").forEach((element) => { element.value = "" });
 }
 
 /**
@@ -198,16 +198,24 @@ function contactsPhoneRequirementUnfullfilled() {
  */
 function contactClicked(indexContact) {
     if (window.innerWidth <= 900) {
-        document.getElementById("addresbookHideMobile").classList.add("d-none");
-        document.getElementById("contactFocus").style.display = "flex";
-        document.getElementById("addNewContactBtnMobile").classList.add("d-none");
-        document.getElementById("editContactBtnMobile").classList.remove("d-none");
-        document.getElementById("arrowBackwardsMobile").classList.remove("d-none");
+        contactClickedMobile(indexContact);
     }
     clearActiveContacts();
     highlightContact(indexContact);
     updateFocusedContact(indexContact);
-    document.getElementById("menuEditDeleteMobile").innerHTML = getContactsMenuMobileTemplate(indexContact)
+}
+
+function contactClickedMobile(indexContact) {
+    document.getElementById("addresbookHideMobile").classList.add("d-none");
+    document.getElementById("contactFocus").style.display = "flex";
+    document.getElementById("addNewContactBtnMobile").classList.add("d-none");
+    document.getElementById("editContactBtnMobile").classList.remove("d-none");
+    document.getElementById("arrowBackwardsMobile").classList.remove("d-none");
+    document.getElementById("menuEditDeleteMobile").innerHTML = getContactsMenuMobileTemplate(indexContact);
+    if (indexContact == indexContactUser) {
+        document.getElementById("deleteBtnContactsMobile").classList.add("d-none");
+    }
+
 }
 
 /**
@@ -246,7 +254,7 @@ function updateFocusedContact(indexContact) {
     let focusedContactRef = document.getElementById("focusedContactInformation");
     focusedContactRef.innerHTML = "";
     setTimeout(() => {
-        focusedContactRef.style.animationName ="openFocusedContact";
+        focusedContactRef.style.animationName = "openFocusedContact";
         focusedContactRef.innerHTML = getFocusedContactTemplate(indexContact);
         profileBadgeColor("focusedProfileBadge", indexContact);
         if (indexContact == indexContactUser) {
@@ -254,7 +262,7 @@ function updateFocusedContact(indexContact) {
             document.getElementById("deleteBtnContacts").classList.add("d-none");
         }
     }, 250)
-    focusedContactRef.style.animationName ="unset";
+    focusedContactRef.style.animationName = "unset";
 }
 
 /**

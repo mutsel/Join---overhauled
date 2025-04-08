@@ -129,7 +129,7 @@ function getBoardTaskTemplate(indexTask) {
                 </div>
             </section>`
 }
-
+ 
 /**
  * This template displays a contacts profile badge on the board's task-card
  * 
@@ -294,7 +294,7 @@ function getContactsMenuMobileTemplate(indexContact) {
                 <div class="edit-delete-btn-icon edit-icon"></div>
                 <span>Edit</span>
             </button>
-            <button id="deleteBtnContacts" onclick="deleteContact(${indexContact}), toggleEditDeleteMenuMobile()" class="focused-contact-btns">
+            <button id="deleteBtnContactsMobile" onclick="deleteContact(${indexContact}), toggleEditDeleteMenuMobile()" class="focused-contact-btns">
                 <div class="edit-delete-btn-icon delete-icon"></div>
                 <span>Delete</span>
             </button>`
