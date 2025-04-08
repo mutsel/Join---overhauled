@@ -60,7 +60,7 @@ function getAssignedContacts() {
     }
     return assignedContactsArray;
 }
- 
+
 /**
  * This function checks if the picked date is valide (not in the past)
  */
@@ -215,9 +215,13 @@ function getEditProgress(indexTask) {
  * This function is part of the saveEditTask()-function. It checks, if the board.html is the current page and executes corresponding functions
  */
 async function boardOnlyFunctions() {
-    successfullMsg("taskSuccesfullyEdited");
+    if (document.getElementById("editTaskOverlay").classList.contains("d-none")) {
+        successfullMsg("taskSuccesfullyCreated");
+    } else {
+        successfullMsg("taskSuccesfullyEdited");
+    }
+    closeOverlays();
     setTimeout(function () {
         initBoard();
-        closeOverlays();
     }, 1600);
 }

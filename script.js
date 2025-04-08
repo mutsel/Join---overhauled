@@ -243,10 +243,12 @@ function nameAbbreviation(indexContact) {
  * @param {number} msgId - the id of the message that should be shown
  */
 async function successfullMsg(msgId) {
-  let successAnimation = document.getElementById(msgId);
-  successAnimation.style.animationName = "msgSuccesfull";
+  let successMsg = document.getElementById(msgId);
+  successMsg.classList.remove("d-none");
+  successMsg.style.animationName = "msgSuccesfull";
   setTimeout(function () {
-    successAnimation.style.animationName = "";
+    successMsg.style.animationName = "unset";
+    successMsg.classList.add("d-none");
     init();
   }, 1600);
 }

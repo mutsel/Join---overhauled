@@ -327,7 +327,7 @@ async function editContactUser(userName, userMail) {
  */
 async function deleteContact(indexContact) {
     await deleteData("/contacts/" + contacts[indexContact].url);
-    successfullMsg("contactSuccesfullyDeleted");
+    contactSuccessfully("Deleted")
     document.getElementById("focusedContactInformation").innerHTML = "";
     initContacts();
     if (window.innerWidth <= 1000) {

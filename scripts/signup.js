@@ -85,7 +85,6 @@ async function addUserToContacts(userName, userMail) {
  */
 function signUpSuccessfully() {
     successfullMsg("userSuccesfullyCreated");
-    clearSignUpForm();
     setTimeout(function () {
         redirectionToLogIn();
     }, 1800);

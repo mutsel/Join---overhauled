@@ -273,11 +273,6 @@ input[type="password"]:focus {
   }
 }
 
-/** This class is added, when input requirement is unfulfilled **/
-.requirement-unfulfilled {
-  outline: 1px solid #FF001F !important;
-}
-
 button {
   border-radius: 10px;
   display: flex;
@@ -310,16 +305,6 @@ button {
   border: 1px solid var(--clr-lightBlue);
   box-shadow: var(--shadow-stronger);
   color: var(--clr-lightBlue);
-}
-
-.input-error {
-  color: #FF001F;
-  font-size: var(--fs-16-12);
-  font-weight: var(--fw-500);
-  line-height: 15.6px;
-  text-align: start;
-  text-wrap: nowrap;
-  pointer-events: none;
 }
 
 .edit-delete-btns {
@@ -369,10 +354,19 @@ button {
   background-image: url("../assets/delete_hover.svg");
 }
 
+.requirement-unfulfilled {
+  outline: 1px solid #FF001F !important;
+}
 
-
-
-
+.input-error {
+  color: #FF001F;
+  font-size: var(--fs-16-12);
+  font-weight: var(--fw-500);
+  line-height: 15.6px;
+  text-align: start;
+  text-wrap: nowrap;
+  pointer-events: none;
+}
 
 .bg-overlay {
   height: 100%;
