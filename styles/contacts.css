@@ -501,6 +501,7 @@ html {
 
 @media (max-width: 900px) {
     main {
+        height: 100vh;
         justify-content: center;
         background-color: var(--clr-white);
     }
