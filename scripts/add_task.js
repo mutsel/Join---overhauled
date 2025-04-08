@@ -4,21 +4,18 @@
 async function initAddTask() {
     await init();
     clearTaskForm();
-    fillAssignedToDropDownMenu(); 
+    fillAssignedToDropDownMenu();  
 }
 
 /**
  * This function clears and resets the add-task-form (input-values, drop-down-menus and buttons)
  */
 async function clearTaskForm() {
-    document.getElementById("addTaskTitle").value = "";
+    document.querySelectorAll("input").forEach((element) => {element.value = ""});
     document.getElementById("addTaskDescription").value = "";
-    document.getElementById("addTaskAssignedTo").value = "";
     clearAssignedTo();
-    document.getElementById("addTaskDate").value = "";
     clearPriorityBtns();
     document.getElementById("addTaskCategory").placeholder = "Select task category";
-    document.getElementById("addTaskSubtask").value = "";
     document.getElementById("addTaskSubtaskListContent").innerHTML = "";
     document.getElementById("prioMedium").classList.add("prioMediumClicked", "clicked");
     document.getElementById("prioMediumImg").src = "../assets/prioMedium_active.svg";

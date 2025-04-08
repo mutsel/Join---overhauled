@@ -60,7 +60,7 @@ function getAssignedContacts() {
     }
     return assignedContactsArray;
 }
-
+ 
 /**
  * This function checks if the picked date is valide (not in the past)
  */
@@ -75,13 +75,16 @@ function checkDateInput() {
         if (dateInput - today >= 0) {
             return document.getElementById("addTaskDate").value
         }
-        else { 
+        else {
             dateInputInvalid();
-            return false; 
+            return false;
         }
     }
 }
 
+/**
+ * This function shows alerts for an invalide date-input
+ */
 function dateInputInvalid() {
     document.getElementById("alertAddTaskDate").classList.remove("invisible");
     document.getElementById("addTaskDate").classList.add("requirement-unfulfilled");
@@ -175,10 +178,9 @@ function requirementsUnfullfilled() {
 
 /**
  * This function lets the user save changes for a task, wich are used tot edit the data in firebase and the tasks-array
- * 
- * @param {number} indexTask - the index of the task in the tasks-array
  */
-function saveEditTask(indexTask) {
+function saveEditTask() {
+    let indexTask = document.querySelector(".index-task").id;
     if (requirementsFullfilled()) {
         putData("/tasks/" + tasks[indexTask].url, {
             "title": document.getElementById("addTaskTitle").value,
@@ -188,7 +190,7 @@ function saveEditTask(indexTask) {
             "priority": getTaskPriority(),
             "category": checkTaskCategory(),
             "subtasks": getSubtasks(),
-            "progress": { "progress": getEditProgress() }
+            "progress": { "progress": getEditProgress(indexTask) }
         });
         boardOnlyFunctions();
     } else { requirementsUnfullfilled() }
@@ -196,9 +198,11 @@ function saveEditTask(indexTask) {
 
 /**
  * This function is part of the saveEditTask()-function and returns the progress-category, where the edited task is in
+ * 
+ * @param {number} indexTask - the index of the task in the tasks-array
  */
-function getEditProgress() {
-    switch (document.getElementById("editTaskOk").classList[1]) {
+function getEditProgress(indexTask) {
+    switch (document.getElementById(indexTask).classList[2]) {
         default:
         case "progress-toDo": return "toDo"
         case "progress-inProgress": return "inProgress"

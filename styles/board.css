@@ -234,8 +234,8 @@ main {
     gap: 10px;
     border-radius: 20px;
     border-top-right-radius: 0;
-    z-index: 6;
-    transform: translateX(calc(3rem - clamp(0rem, 5.5263rem + -12.6316vw, 3rem))) translateY(12px);
+    z-index: 7;
+    transform: translateX(calc(3rem - clamp(0rem, 5.5263rem + -12.6316vw, 3rem))) translateY(12px) rotateZ(-5deg);
     color: var(--clr-white);
     overflow: visible;
     background: var(--clr-primary);
@@ -274,6 +274,16 @@ main {
         }
     }
 }
+
+.bg-overlay-invisible {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: transparent;
+  }
 
 .board-overlay {
     position: fixed;
@@ -469,8 +479,7 @@ main {
         .add-task-footer {
             padding-bottom: 0;
 
-            .add-task-requirements,
-            .white-btn {
+            .add-task-requirements {
                 display: none;
             }
         }
@@ -589,9 +598,9 @@ main {
             }
 
             .input-seperator {
-                position: fixed;
-                transform: translateX(-8px) translateY(40.5px);
                 z-index: 2;
+                top: 88px;
+                left: calc(29.375rem - clamp(5.625rem, 33.7500rem + -50.0000vw, 23.75rem));
             }
 
             button {

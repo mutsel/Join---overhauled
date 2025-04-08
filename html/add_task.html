@@ -31,7 +31,7 @@
                 <h1 id="addTaskH1" class="">Add Task</h1>
                 <img onclick="closeOverlays()" src="../assets/cancel.svg" class="overlay-close"></img>
             </div>
-            
+
             <form id="addTaskForm" class="add-task-form task-content flex just-space-b">
                 <div class="add-task-form-column flex">
                     <label for="addTaskTitle">
@@ -47,8 +47,8 @@
                     <label for="addTaskAssignedTo">Assigned to</label>
                     <input onkeyup="startSearchingContacts()"
                         onfocus="toggleAddTaskToDropDownMenu('addTaskAssignedTo', 'addTaskDropdownContacts')"
-                        id="addTaskAssignedTo" class="add-task-select-menu add-task-assigned-to" type="text" name="select"
-                        placeholder="Select contacts to assign">
+                        id="addTaskAssignedTo" class="add-task-select-menu add-task-assigned-to" type="text"
+                        name="select" placeholder="Select contacts to assign">
                     <div class="add-task-dropdown custom-scrollbar flex">
                         <div id="addTaskDropdownContacts" class="dropdown-content d-none"></div>
                     </div>
@@ -59,7 +59,7 @@
                                 id="assignedContactsAdditionNumber">0</p>
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <div class="add-task-seperator"></div>
 
@@ -71,7 +71,8 @@
                     <input onblur="checkFilledInput('addTaskDate'), checkDateInput()" form="dd/mm/yyyy" id="addTaskDate"
                         class="add-task-date" type="date" min="1920-01-01" max="2100-12-31" required>
                     <div class="add-task-alerts flex">
-                        <span id="alertAddTaskDate" class="input-error date-error invisible">Please enter a valid date</span>
+                        <span id="alertAddTaskDate" class="input-error date-error invisible">Please enter a valid
+                            date</span>
                     </div>
 
                     <label for="addTaskPriorities">Priority</label>
@@ -98,7 +99,8 @@
                     </label>
                     <input onblur="checkFilledInput('addTaskCategory')"
                         onfocus="toggleAddTaskToDropDownMenu('addTaskCategory','addTaskDropdownCategories')"
-                        id="addTaskCategory" class="add-task-select-menu" type="text" name="select" placeholder="Select task category" readonly>
+                        id="addTaskCategory" class="add-task-select-menu" type="text" name="select"
+                        placeholder="Select task category" readonly>
                     <div class="add-task-dropdown flex">
                         <div id="addTaskDropdownCategories" class="dropdown-content d-none">
                             <div onclick="selectTaskCategory('Bug Fix')"
@@ -117,14 +119,11 @@
                         <input onfocus="changeSubtaskIcons()" onfocusout="changeSubtaskIcons()" type="text"
                             id="addTaskSubtask" placeholder="Add new subtask">
                         <div class="subtasks-input-icons flex align-center">
-                            <img id="subtaskIconAdd" class="subtask-icon"
-                                src="../assets/plus.svg">
+                            <img id="subtaskIconAdd" class="subtask-icon" src="../assets/plus.svg">
                             <div id="subtaskIconsFocus" class="d-none">
-                                <img onclick="clearSubtasksInput()" class="subtask-icon"
-                                    src="../assets/cancel.svg">
+                                <img onclick="clearSubtasksInput()" class="subtask-icon" src="../assets/cancel.svg">
                                 <div class="subtask-icons-seperator"></div>
-                                <img onclick="addSubtaskToList()" class="subtask-icon"
-                                    src="../assets/create_dark.svg">
+                                <img onclick="addSubtaskToList()" class="subtask-icon" src="../assets/create_dark.svg">
                             </div>
                         </div>
                     </div>
@@ -145,13 +144,17 @@
                         <span id="alertAddTask" class="input-error invisible">Please fill in the required inputs</span>
                     </div>
                     <div id="addTaskSubmitBtns" class="add-task-submit-btns flex">
-                        <button onclick="initAddTask()" class="white-btn" id="addTaskCancel">
+                        <button onclick="initAddTask()" id="addTaskCancel" class="white-btn">
                             Cancel
                             <div class="cancel-img"></div>
                         </button>
-                        <button onclick="addTask()" class="blue-btn progress-toDo" id="addTaskCreate">
+                        <button onclick="addTask()" id="addTaskCreate" class="blue-btn progress-toDo">
                             Create Task
                             <img src="../assets/create_light.svg">
+                        </button>
+                        <button onclick="saveEditTask()" class="index-task blue-btn d-none">
+                            Ok
+                            <img src='../assets/create_light.svg'>
                         </button>
                     </div>
                 </div>

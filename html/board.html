@@ -36,7 +36,7 @@
                 <input onkeyup="startSearchingTasks()" id="searchInput" type="text" name="search"
                     placeholder="Find Task">
                 <div class="input-seperator"></div>
-                <button class="blue-btn" onclick="boardAddTask('add', 'toDo')">
+                <button class="blue-btn" onclick="fetchAddTask('add', 'toDo')">
                     <p>Add Task</p>
                     <img src="../assets/plus.svg" alt="+">
                 </button>
@@ -47,7 +47,7 @@
             <div class="board-category flex column">
                 <div class="board-category-header flex just-space-b">
                     <p>To Do</p>
-                    <div onclick="boardAddTask('add', 'toDo')" class="board-plus-btn"></div>
+                    <div onclick="fetchAddTask('add', 'toDo')" class="board-plus-btn"></div>
                 </div>
                 <div class="board-category-content flex column">
                     <div class="no-task-message flex align-center just-center" id="noTaskToDo">No Tasks To Do</div>
@@ -56,10 +56,10 @@
                 </div>
             </div>
 
-            <div class="board-category flex column">
+            <div class="board-category flex column"> 
                 <div class="board-category-header flex just-space-b">
                     <p>In Progress</p>
-                    <div onclick="boardAddTask('add', 'inProgress')" class="board-plus-btn"></div>
+                    <div onclick="fetchAddTask('add', 'inProgress')" class="board-plus-btn"></div>
                 </div>
                 <div class="board-category-content flex column">
                     <div class="no-task-message flex align-center just-center" id="noTaskInProgress">No Tasks In
@@ -73,7 +73,7 @@
             <div class="board-category flex column">
                 <div class="board-category-header flex just-space-b">
                     <p>Await Feedback</p>
-                    <div onclick="boardAddTask('add', 'awaitFeedback')" class="board-plus-btn"></div>
+                    <div onclick="fetchAddTask('add', 'awaitFeedback')" class="board-plus-btn"></div>
                 </div>
                 <div class="board-category-content flex column">
                     <div class="no-task-message flex align-center just-center" id="noTaskAwaitFeedback">No Tasks <br>
@@ -103,7 +103,7 @@
         </section>
     </main>
 
-    <section id="boardOverlayBg" class="bg-overlay d-none" onclick="closeOverlays()"></section>
+    <section onclick="closeOverlays()" id="boardOverlayBg" class="bg-overlay d-none"></section>
 
     <section id="addTaskOverlay" class="board-add-task-overlay board-overlay d-none">
         <div id="addTaskOverlayContent" class="add-task-overlay-content"></div>
@@ -116,6 +116,7 @@
     <section id="editTaskOverlay" class="board-edit-task-overlay board-overlay d-none">
         <div id="editTaskOverlayContent" class="edit-task-overlay-content"></div>
     </section>
+    <section onclick="closeOverlays()" id="boardOverlayBgInvisible" class="bg-overlay-invisible d-none"></section>
 
     <section class="messages">
         <div id="taskSuccesfullyCreated" class="succesfull-msg">

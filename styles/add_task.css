@@ -362,6 +362,7 @@ textarea::-webkit-scrollbar-thumb:hover,
 
         .add-task-submit-btns {
             gap: 16px;
+            display: flex;
 
             button {
                 padding: 16px;

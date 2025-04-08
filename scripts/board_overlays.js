@@ -1,57 +1,50 @@
 /**
- * This function closes all board-overlays and renders a fresh page
+ * This function closes all board-overlays and renders a fresh page ()
  */
 function closeOverlays() {
-    document.getElementById("boardOverlayBg").style.animationName = "closeBgOverlay";
-    document.getElementById("addTaskOverlay").style.animationName = "closeOverlay";
-    document.getElementById("overviewOverlay").style.animationName = "closeOverlay";
-    document.getElementById("editTaskOverlay").style.animationName = "closeOverlay";
+    closeBoardBgOverlay()
+    document.querySelectorAll(".board-overlay").forEach((element) => { element.style.animationName = "closeOverlay" });
     setTimeout(function () {
-        document.getElementById("boardOverlayBg").classList.add("d-none");
-        document.getElementById("addTaskOverlay").classList.add("d-none");
-        document.getElementById("overviewOverlay").classList.add("d-none");
-        document.getElementById("editTaskOverlay").classList.add("d-none");
+        document.querySelectorAll(".board-overlay").forEach((element) => { element.classList.add("d-none") });
+        document.getElementById("addTaskOverlayContent").innerHTML = "";
         document.getElementById("editTaskOverlay").style.animationName = "unset";
     }, 600);
     document.getElementById("searchInput").value = "";
     document.getElementById("noResultSearchInput").classList.add("d-none");
-    document.querySelector("html").classList.remove("no-scroll");
     renderTasks();
     toggleMessageNoTasks();
 }
 
-/**
+/** 
  * This function opens the background overlay for board-overlays
  */
 function openBoardBgOverlay() {
     document.getElementById("overviewOverlay").classList.add("d-none");
-    let bgOverlayContentRef = document.getElementById("boardOverlayBg");
-    bgOverlayContentRef.classList.remove("d-none");
+    document.getElementById("boardOverlayBg").classList.remove("d-none");
     document.querySelector("html").classList.add("no-scroll");
     document.getElementById("boardOverlayBg").style.animationName = "openBgOverlay";
 }
 
 /**
- * This function opens the editTaskOverlay for the clicked task, which gives the user the ability to edit the information
- * 
- * @param {string} progress - the progress-category, where the new task should be in after submitting
+ * This function closes the background overlay for board-overlays
  */
-async function openEditTaskOverlay(progress, indexTask) {
-    let overlayRef = document.getElementById("editTaskOverlay");
-    let overlayContentRef = document.getElementById("editTaskOverlayContent");
-    overlayRef.classList.remove("d-none");
-    overlayContentRef.innerHTML = "";
-    overlayContentRef += await boardAddTask('edit', progress, indexTask);
+function closeBoardBgOverlay() {
+    document.querySelector("html").classList.remove("no-scroll");
+    document.getElementById("boardOverlayBg").style.animationName = "closeBgOverlay";
+    document.getElementById("boardOverlayBgInvisible").classList.add("d-none");
+    setTimeout(function () {
+        document.getElementById("boardOverlayBg").classList.add("d-none");
+    }, 600);
 }
 
-/**
+/** 
  * This function fetches the main-part of the add_task.html and implementes it in the #addTaskOverlay-section
  * 
  * @param {string} overlay - the overlay, that should get the fetched html-data
  * @param {string} progress - the progress-category, where the new task should be in after submitting
  * @param {number} indexTask - the index of the task in the tasks-array
  */
-async function boardAddTask(overlay, progress, indexTask) {
+async function fetchAddTask(overlay, progress, indexTask) {
     fetch('add_task.html')
         .then(response => {
             return response.text()
@@ -63,24 +56,44 @@ async function boardAddTask(overlay, progress, indexTask) {
             initBoard();
             openBoardBgOverlay();
             if (overlay == "add") { openBoardAddTaskOverlay(addTaskOverlayContent, progress) }
-            if (overlay == "edit") { adjustBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) }
+            if (overlay == "edit") { openBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) }
         })
 }
 
 /**
-* This function is part of the boardAddTask()-function and adds visibility of the #addTaskOverlay
+* This function is part of the fetchAddTask()-function and fills the #addTaskOverlay
 * 
-* @param {html} addTaskOverlay - the html of the main-part of the add_task.html
-* @param {string} progress - the progress-category, where the new task should be in after submitting
+* @param {html} addTaskOverlayContent - the html of the main-part of the add_task.html
+* @param {string} progress - the progress-category, where the new task should be added in after submitting
 */
-async function openBoardAddTaskOverlay(addTaskOverlayContent, progress) {
+function openBoardAddTaskOverlay(addTaskOverlayContent, progress) {
     document.getElementById("addTaskOverlay").classList.remove("d-none");
     document.getElementById("addTaskOverlay").style.animationName = "openOverlay";
-    let addTaskOverlayContentRef = document.getElementById("addTaskOverlayContent");
-    addTaskOverlayContentRef.innerHTML = "";
-    addTaskOverlayContentRef.innerHTML = addTaskOverlayContent;
+    document.getElementById("addTaskOverlayContent").innerHTML = "";
+    document.getElementById("addTaskOverlayContent").innerHTML = addTaskOverlayContent;
     adjustAddTaskProgress(progress);
     clearTaskForm();
+    fillAssignedToDropDownMenu();
+}
+
+/**
+* This function is part of the fetchAddTask()-function and fills the #editTaskOverlay
+* 
+* @param {html} addTaskOverlayContent - the html of the main-part of the add_task.html
+* @param {string} progress - the progress-category, where the edited task is in after submitting
+*/
+function openBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) {
+    document.getElementById("editTaskOverlay").classList.remove("d-none");
+    document.getElementById("editTaskOverlay").style.animationName = "openOverlay";
+    document.getElementById("editTaskOverlayContent").innerHTML = "";
+    document.getElementById("editTaskOverlayContent").innerHTML = addTaskOverlayContent;
+    document.getElementById("addTaskH1").innerHTML = "";
+    document.getElementById("addTaskCancel").classList.add("d-none");
+    document.getElementById("addTaskCreate").classList.add("d-none");
+    document.querySelector(".index-task").id = indexTask;
+    document.getElementById(indexTask).classList.remove("d-none");
+    document.getElementById(indexTask).classList.add("progress-" + progress);
+    fillEditTaskInputs(indexTask);
     fillAssignedToDropDownMenu();
 }
 
@@ -94,27 +107,6 @@ function adjustAddTaskProgress(progress) {
     let addTaskCreateBtnClassList = document.getElementById("addTaskCreate").classList;
     addTaskCreateBtnClassList.remove("progress-toDo");
     addTaskCreateBtnClassList.add("progress-" + progress);
-}
-
-/**
- * This function is part of the boardAddTask()-function and adds visibility of the #addTaskOverlay
- * 
- * @param {html} addTaskOverlayContent - the html-content of the main-part of the add_task.html
- * @param {string} progress - the progress-category, where the new task should be in after submitting
- * @param {number} indexTask - the index of the task in the tasks-array
- */
-async function adjustBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) {
-    document.getElementById("editTaskOverlay").classList.remove("d-none");
-    document.getElementById("editTaskOverlayContent").classList.add("edit-task-overlay");
-    document.getElementById("editTaskOverlayContent").innerHTML = addTaskOverlayContent;
-    document.getElementById("addTaskH1").innerHTML = "";
-    document.getElementById("addTaskForm").classList.add("custom-scrollbar");
-    document.getElementById("addTaskCancel").classList.add("d-none");
-    document.getElementById("addTaskCreate").classList.add("d-none");
-    document.getElementById("addTaskSubmitBtns").innerHTML += getBoardEditTaskBtnTemplate(indexTask);
-    document.getElementById("editTaskOk").classList.add("progress-" + progress);
-    fillEditTaskInputs(indexTask);
-    fillAssignedToDropDownMenu();
 }
 
 /**

@@ -104,12 +104,12 @@ function getBoardDropDownAreaTemplate(contentRefId) {
  * @param {number} indexTask - the index of the task in the tasks-array
  */
 function getBoardTaskTemplate(indexTask) {
-    return `<section class="task-card">
+    return `<section onclick="event.stopImmediatePropagation()" id="taskCard${indexTask}" class="task-card">
                 <div id="moveTaskMenuMobile${indexTask}" class="move-task-menu-mobile"></div>
                 <div class="task-card-content flex column" id="task${indexTask}" draggable="true" ondragstart="drag(event)" ondragend="hideDropdownAreas()" onclick="openTaskOverview(${indexTask})">
                     <div class="flex just-space-b">
                         <div class="task-category category-${(tasks[indexTask].category.toLowerCase()).replace(' ', '-')}">${tasks[indexTask].category}</div>
-                        <img onclick="moveTaskProgressMobile(${indexTask}); event.stopImmediatePropagation()" src="../assets/board_move_task_menu_mobile.svg" alt="->" id="moveProgressMobile${indexTask}" class="move-task-menu-mobile-btn">
+                        <img onclick="openMoveTaskProgressMobile(${indexTask}); event.stopImmediatePropagation()" src="../assets/board_move_task_menu_mobile.svg" alt="->" id="moveProgressMobile${indexTask}" class="move-task-menu-mobile-btn">
                     </div>
                     <div class="task-title">${tasks[indexTask].title}</div>
                     <div class="task-description">${tasks[indexTask].description}</div>
@@ -200,7 +200,8 @@ function getTaskOverviewOverlayTemplate(indexTask) {
                     <div class="edit-delete-btn-icon delete-icon"></div> Delete
                 </button>
                 <div class="btns-seperator"></div>
-                <button onclick="openEditTaskOverlay('${tasks[indexTask].progress.progress}', ${indexTask})">
+                
+                <button onclick="fetchAddTask('edit', '${tasks[indexTask].progress.progress}', ${indexTask})">
                     <div class="edit-delete-btn-icon edit-icon"></div> Edit
                 </button>
             </div>`
@@ -231,19 +232,6 @@ function getBoardOverviewSubtask(subtask, indexSubtask, indexTask) {
                 <div id="overviewCheckbox${indexSubtask}" class="overview-checkbox checkbox-completed-${tasks[indexTask].subtasks[indexSubtask].completed}"></div>
                 <p id="subtaskContent${indexSubtask}">${subtask}</p>
             </div>`
-}
-
-/**
- * This template creates the necessary button for the editTask-overlay for the board
- * 
- * @param {number} indexTask - the index of the task in the tasks-array
- */
-function getBoardEditTaskBtnTemplate(indexTask) {
-    return `<button id="editTaskOk" onclick="saveEditTask(${indexTask}); return false"
-                class="blue-btn">
-                Ok
-                <img src='../assets/create_light.svg'>
-            </button>`
 }
 
 /**
@@ -284,7 +272,7 @@ function getFocusedContactTemplate(indexContact) {
                 </div>
             </div>
             <div class="focused-profile-information">
-                <p>Contact Information</p>
+                <p>Contact Information</p> 
                 <div class="flex just-space-b">
                     <span class="contact-opportunity">Email</span>
                     <span class="contact-mail">${contacts[indexContact].mail}</span>

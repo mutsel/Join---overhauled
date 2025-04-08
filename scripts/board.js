@@ -34,7 +34,7 @@ function renderTasks() {
     }
   }
   renderDropdownAreas();
-  moveTaskMenuMobile();
+  toggleMoveTaskMenuMobileBtn();
 }
 
 /**
@@ -163,18 +163,6 @@ function toggleMessageNoTasks() {
   }
 }
 
-/** 
- * This function checks toggles the visibility of the "move-task-menu-mobile-btn", depending if the user uses a mobile device or not
- */
-function moveTaskMenuMobile() {
-  let userDevice = navigator.userAgent.toLowerCase();  
-  if (userDevice.includes('mobil') || userDevice.includes('tablet')) {
-    document.querySelectorAll(".move-task-menu-mobile-btn").forEach((element) => {element.classList.remove("d-none")})
-  } else {
-    document.querySelectorAll(".move-task-menu-mobile-btn").forEach((element) => {element.classList.add("d-none")})
-  }
-}
-
 /**
  * This function checks if the searchInput contains three or more characters. If so, it executes the displayFilteredTasks()-function
  * If not, it fills the progress-categories with the corresponding tasks.
@@ -211,7 +199,7 @@ function displayFilteredTasks(searchInput) {
       if (tasks[indexTask].priority == "") {
         document.getElementById("prio" + indexTask).src = "";
       }
-      moveTaskMenuMobile();
+      toggleMoveTaskMenuMobileBtn();
     }
   }
   showNoResultsAlert()
@@ -247,12 +235,9 @@ function filterTasks(searchInput) {
 
 /**
  * This function gives all dropdown-areas the "d-none"-class
- */
+ */ 
 function hideDropdownAreas() {
-  document.getElementById("dropdownAreatoDo").classList.add("d-none");
-  document.getElementById("dropdownAreainProgress").classList.add("d-none");
-  document.getElementById("dropdownAreaawaitFeedback").classList.add("d-none");
-  document.getElementById("dropdownAreadone").classList.add("d-none");
+  document.querySelectorAll(".dropdown-area").forEach((element) => {element.classList.add("d-none")});
 }
 
 /**
@@ -314,13 +299,27 @@ async function updateTaskProgress(progress, indexTask) {
   }
 }
 
+/** 
+ * This function toggles the visibility of the "move-task-menu-mobile-btn", depending if the user uses a mobile device or not
+ */
+function toggleMoveTaskMenuMobileBtn() {
+  let userDevice = navigator.userAgent.toLowerCase();  
+  if (userDevice.includes('mobil') || userDevice.includes('tablet')) {
+    document.querySelectorAll(".move-task-menu-mobile-btn").forEach((element) => {element.classList.remove("d-none")})
+  } else {
+    document.querySelectorAll(".move-task-menu-mobile-btn").forEach((element) => {element.classList.add("d-none")})
+  }
+}
+
 /**
- * This function lets users with mobile devices move a task to another progress-category
+ * This function lets users with mobile devices move a task to another progress-category by opening a menu
  * 
  * @param {number} indexTask - the index of the task in the tasks-array
  */
-function moveTaskProgressMobile(indexTask) {
-  openBoardBgOverlay();
-  document.querySelector("html").classList.remove("no-scroll");
+function openMoveTaskProgressMobile(indexTask) {
+  document.getElementById("boardOverlayBgInvisible").classList.remove("d-none");
+  document.querySelector("html").classList.add("no-scroll");
   document.getElementById("moveTaskMenuMobile" + indexTask).innerHTML += getBoardTaskMoveProgressMobile(indexTask);
+  document.getElementById("task" + indexTask).style.transform = "rotateZ(-5deg)";
+  document.getElementById("taskCard" + indexTask).style.zIndex = "6";
 }

@@ -136,9 +136,7 @@ function adjustOverlayToEdit(indexContact) {
  * This function clears the input-values of the contact-overlay-form
  */
 function clearContactForm() {
-    document.getElementById("addContactName").value = "";
-    document.getElementById("addContactMail").value = "";
-    document.getElementById("addContactPhone").value = "";
+    document.querySelectorAll("input").forEach((element) => {element.value = ""});
 }
 
 /**

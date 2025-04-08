@@ -10,10 +10,7 @@ async function initSignUp() {
  * This function clears the input values of the sign-up-form and unchecks the checkbox
  */
 function clearSignUpForm() {
-    document.getElementById("name").value = "";
-    document.getElementById("mail").value = "";
-    document.getElementById("password").value = "";
-    document.getElementById("confirmed").value = "";
+    document.querySelectorAll("input").forEach((element) => {element.value = ""});
     document.getElementById("checkboxSignUp").checked = false;
 }
 
