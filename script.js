@@ -3,12 +3,11 @@ const BASE_URL = "https://join-bc94f-default-rtdb.europe-west1.firebasedatabase.
 let users = [];
 let tasks = [];
 let contacts = [];
+
 let currentUser;
 let indexContactUser;
-
 let filteredContacts = [];
 let filteredTasks = [];
-
 let previousLocation;
 
 const colors = [
@@ -27,9 +26,8 @@ const colors = [
   "#ffe625", // Sun Yellow
   "#ff4646", // Red 
   "#ffbb2b", // Goldenrod 
-  "#462f8a"
+  "#462f8a"  // Purple
 ];
-
 let availableColors = [...colors];
 let contactColors = {};
 

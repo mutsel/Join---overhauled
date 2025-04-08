@@ -1,14 +1,9 @@
-/* basic css */
+/* html elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-}
-
-a {
-  text-decoration: none;
-  color: unset;
 }
 
 body,
@@ -26,11 +21,6 @@ body {
   background-color: var(--bg-gray);
 }
 
-h1 {
-  font-size: var(--fs-61-47);
-  font-weight: 700;
-}
-
 main {
   max-width: 1688px;
   margin-left: 232px;
@@ -40,6 +30,16 @@ main {
     margin-left: 0;
     margin-bottom: 110px;
   }
+}
+
+h1 {
+  font-size: var(--fs-61-47);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }
 
 input {
@@ -55,26 +55,9 @@ input {
   background-position: 95%;
 }
 
-textarea {
-  height: 120px;
-  padding: 12px 16px;
-  border: 1px solid #D1D1D1;
-  border-radius: 10px;
-  color: var(--clr-primary);
-  font-family: Inter;
-  font-size: 20px;
-  resize: none;
-}
-
 ::-webkit-input-placeholder {
   color: var(--clr-lighterGray);
-  font-size: var(--fs-20);
-}
-
-textarea:focus,
-input:focus {
-  outline: 1px solid #29ABE2;
-  border: 1px solid transparent;
+  font-size: 20px;
 }
 
 input[type="text"][name="name"] {
@@ -101,20 +84,26 @@ input[type="tel"] {
   background-image: url('./assets/input_phone.svg');
 }
 
-/* input[type="password"] {
-  background-image: url('./assets/input_password.svg');
-} */
-
-input[type="password"]:focus {
-  background-image: none;
+textarea {
+  height: 120px;
+  padding: 12px 16px;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  color: var(--clr-primary);
+  font-family: Inter;
+  font-size: 20px;
+  resize: none;
 }
 
+input:focus,
+textarea:focus {
+  outline: 1px solid #29ABE2;
+  border: 1px solid transparent;
+}
+
+/* display-classes */
 .d-none {
   display: none !important;
-}
-
-.invisible {
-  color: transparent !important;
 }
 
 .flex {
@@ -145,6 +134,7 @@ input[type="password"]:focus {
   align-items: center;
 }
 
+/* scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 24px;
 }
@@ -173,7 +163,15 @@ input[type="password"]:focus {
   background-color: var(--clr-lightGray);
 }
 
-/* for addTasks and board */
+/* classes for numerous used elements */
+.invisible {
+  color: transparent !important;
+}
+
+.no-scroll {
+  overflow: clip !important;
+}
+
 .profile-badge {
   border: 2px solid var(--clr-white);
   border-radius: 45px;
@@ -182,7 +180,7 @@ input[type="password"]:focus {
   justify-content: center;
   background-color: var(--clr-lighterGray);
   color: var(--clr-white);
-  font-size: var(--fs-12);
+  font-size: 12px;
 }
 
 .overlay-close:hover {
@@ -203,10 +201,7 @@ input[type="password"]:focus {
   cursor: pointer;
 }
 
-.no-scroll {
-  overflow: clip !important;
-}
-
+/* successfull-messages (for create, edit, delete) */
 .messages {
   height: 0;
   width: 0;
@@ -234,7 +229,7 @@ input[type="password"]:focus {
     background-color: var(--clr-primary);
     box-shadow: var(--shadow-nuevo);
     color: var(--clr-white);
-    font-size: var(--fs-20);
+    font-size: 20px;
     animation-duration: 1800ms;
 
     @media (max-width: 900px) {
@@ -244,7 +239,6 @@ input[type="password"]:focus {
   }
 }
 
-/* This is added to the success-messages, when create/edit/delete was succesfully*/
 @keyframes msgSuccesfull {
   0% {
     left: -300vb;
@@ -263,12 +257,13 @@ input[type="password"]:focus {
   }
 }
 
+/* buttons */
 button {
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--fs-21);
+  font-size: 21px;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
@@ -310,8 +305,8 @@ button {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: var(--fw-400);
-    font-size: var(--fs-16);
+    font-weight: 400;
+    font-size: 16px;
     line-height: 19.2px;
     background-color: transparent;
 
@@ -344,6 +339,7 @@ button {
   background-image: url("../assets/delete_hover.svg");
 }
 
+/* input-errors */
 .requirement-unfulfilled {
   outline: 1px solid #FF001F !important;
 }
@@ -351,13 +347,14 @@ button {
 .input-error {
   color: #FF001F;
   font-size: var(--fs-16-12);
-  font-weight: var(--fw-500);
+  font-weight: 500;
   line-height: 15.6px;
   text-align: start;
   text-wrap: nowrap;
   pointer-events: none;
 }
 
+/* overlays */
 .bg-overlay {
   height: 100%;
   width: 100%;

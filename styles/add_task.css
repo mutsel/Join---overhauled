@@ -316,7 +316,7 @@ textarea::-webkit-scrollbar-thumb:hover,
                 padding: 4px 16px;
                 border: unset;
                 border-radius: 0;
-                font-size: var(--fs-16);
+                font-size: 16px;
             }
 
             .subtask-edit-input:focus {
@@ -367,7 +367,7 @@ textarea::-webkit-scrollbar-thumb:hover,
             button {
                 padding: 16px;
                 gap: 4px;
-                font-size: var(--fs-20);
+                font-size: 20px;
             }
 
             .white-btn .cancel-img {

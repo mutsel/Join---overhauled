@@ -19,7 +19,7 @@ html {
     .blue-btn {
         height: calc(6.5rem - clamp(3rem, 4.3333rem + -1.4815vw, 3.5rem));
         width: 100%;
-        font-size: var(--fs-21);
+        font-size: 21px;
         gap: 16px;
         border-radius: 10px;
     }
@@ -70,7 +70,7 @@ html {
         .letter {
             width: 100%;
             padding: 17px 36px;
-            font-size: var(--fs-20);
+            font-size: 20px;
         }
 
         .letter-underline {
@@ -102,7 +102,7 @@ html {
         overflow: hidden;
 
         .contact-name {
-            font-size: var(--fs-20);
+            font-size: 20px;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -179,7 +179,7 @@ html {
         text-align: center;
         align-content: center;
         color: var(--clr-white);
-        font-weight: var(--fw-500);
+        font-weight: 500;
         font-size: var(--fs-47-27);
         box-shadow: var(--shadow-nuevo);
     }
@@ -192,7 +192,7 @@ html {
         text-overflow: ellipsis;
 
         .focused-contact-name {
-            font-weight: var(--fw-500);
+            font-weight: 500;
             font-size: var(--fs-47-36);
             overflow: hidden;
             white-space: break-spaces;
@@ -209,7 +209,7 @@ html {
 
     p {
         padding: 26px 0;
-        font-size: var(--fs-20);
+        font-size: 20px;
     }
 
     div {
@@ -218,7 +218,7 @@ html {
         flex-direction: column;
 
         .contact-opportunity {
-            font-weight: var(--fw-700);
+            font-weight: 700;
         }
     }
 }
@@ -295,8 +295,8 @@ html {
             height: 120px;
             width: 120px;
             border-radius: 70px;
-            font-weight: var(--fw-500);
-            font-size: var(--fs-47);
+            font-weight: 500;
+            font-size: 47px;
         }
 
         .overlay-form {
@@ -341,7 +341,7 @@ html {
                     padding: 16px;
                     border-radius: 10px;
                     gap: 4px;
-                    font-size: var(--fs-21);
+                    font-size: 21px;
 
                     .cancel-btn-icon {
                         height: 24px;

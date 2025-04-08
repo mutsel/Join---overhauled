@@ -68,7 +68,7 @@ body::-webkit-scrollbar {
 
       .next-deadline {
         font-size: var(--fs-20-14);
-        font-weight: var(--fw-700)
+        font-weight: 700;
       }
 
       .upcoming-deadline {
@@ -113,7 +113,7 @@ body::-webkit-scrollbar {
   .summary-number {
     color: var(--clr-black);
     font-size: var(--fs-64-47);
-    font-weight: var(--fw-600);
+    font-weight: 600;
   }
 
   .summary-explanation {

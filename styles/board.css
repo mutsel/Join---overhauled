@@ -52,7 +52,7 @@ main {
             width: 100%;
             padding-bottom: 8px;
             font-size: calc(2.25rem - clamp(1rem, 1.6667rem + -0.7407vw, 1.25rem));
-            font-weight: var(--fw-700);
+            font-weight: 700;
 
             .board-plus-btn {
                 width: 24px;
@@ -150,7 +150,7 @@ main {
             padding: 4px calc(1.75rem - clamp(0.75rem, 1.5682rem + -0.9091vw, 1rem));
             border-radius: 8px;
             color: white;
-            font-size: var(--fs-16);
+            font-size: 16px;
         }
 
         .move-task-menu-mobile-btn {
@@ -196,7 +196,7 @@ main {
             }
 
             span {
-                font-size: var(--fs-12);
+                font-size: 12px;
                 white-space: nowrap;
             }
         }
@@ -390,7 +390,7 @@ main {
             padding: 7px 16px;
             gap: 16px;
             border-radius: 16px;
-            font-size: var(--fs-20);
+            font-size: 20px;
             cursor: default;
 
             .profile-badge,
@@ -412,7 +412,7 @@ main {
                     height: 24px;
                     width: 24px;
                     background-repeat: no-repeat;
-                    background-size: contain ;
+                    background-size: contain;
                 }
 
                 .checkbox-completed-true {
@@ -542,7 +542,7 @@ main {
         .board-category {
             .board-category-header {
                 max-width: 256px;
-                font-size: var(--fs-27);
+                font-size: 27px;
 
                 .board-plus-btn {
                     width: 30px;

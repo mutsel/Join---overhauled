@@ -8,7 +8,7 @@
   z-index: 2;
 
   p {
-    font-size: var(--fs-20);
+    font-size: 20px;
   }
 
   .join-logo {
@@ -35,7 +35,7 @@
       border-radius: 50%;
       cursor: pointer;
       color: var(--clr-lightBlue);
-      font-weight: var(--fw-700);
+      font-weight: 700;
     }
   }
 }
