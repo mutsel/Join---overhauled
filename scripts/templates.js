@@ -79,13 +79,6 @@ function getAddTaskSubtaskEditTemplate(subtask, indexSubtask) {
             </div>`
 }
 
-// /**
-//  * This template includes a button to close board's overlays
-//  */
-// function getBoardCloseBtnTemplate() {
-//     return `<img onclick="closeOverlays()" src="../assets/cancel.svg" class="overlay-close"></img>`
-// }
-
 /**
  * This template creates a (by default invisible) marked area, where a dragged element can be released. Ondragover it becomes visible.
  * 
@@ -98,7 +91,7 @@ function getBoardDropDownAreaTemplate(contentRefId) {
 }
 
 
-/**
+/** 
  * This template creates a task-card with some information vor a task
  * 
  * @param {number} indexTask - the index of the task in the tasks-array

@@ -200,7 +200,7 @@ function contactClicked(indexContact) {
     if (window.innerWidth <= 900) {
         contactClickedMobile(indexContact);
     }
-    clearActiveContacts();
+    clearActiveContacts(); 
     highlightContact(indexContact);
     updateFocusedContact(indexContact);
 }

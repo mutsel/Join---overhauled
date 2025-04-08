@@ -283,7 +283,7 @@ main {
     left: 0;
     z-index: 5;
     background: transparent;
-  }
+}
 
 .board-overlay {
     position: fixed;
@@ -334,7 +334,7 @@ main {
     .overview-overlay-content {
         max-height: 100vh;
         width: calc(51.563rem - clamp(18.75rem, 44.6555rem + -59.2126vw, 32.813rem));
-        padding: 48px 40px;
+        padding: calc(4.5rem - clamp(1.5rem, 3.8276rem + -4.1379vw, 3rem)) calc(2.625rem - clamp(0.125rem, 3.8103rem + -6.5517vw, 2.5rem));
         gap: 20px;
         overflow-y: scroll;
 
@@ -349,6 +349,7 @@ main {
 
         .overview-title,
         .overview-description {
+            overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -410,6 +411,8 @@ main {
                 .overview-checkbox {
                     height: 24px;
                     width: 24px;
+                    background-repeat: no-repeat;
+                    background-size: contain ;
                 }
 
                 .checkbox-completed-true {
@@ -419,6 +422,15 @@ main {
 
                 .checkbox-completed-false {
                     background-image: url("../assets/checkbox.svg");
+                }
+
+                p {
+                    flex: 1;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
                 }
             }
 
@@ -447,6 +459,7 @@ main {
     .edit-task-overlay-content {
         height: fit-content;
         max-height: 100vh;
+        width: calc(51.563rem - clamp(18.75rem, 44.6555rem + -59.2126vw, 32.813rem));
         padding: calc(4.5rem - clamp(1.5rem, 3.8276rem + -4.1379vw, 3rem)) calc(2.625rem - clamp(0.125rem, 3.8103rem + -6.5517vw, 2.5rem));
         gap: 20px;
         overflow-y: scroll;
@@ -629,7 +642,9 @@ main {
     }
 
     .board-overview-overlay {
-        padding: 32px 24px;
+        .overview-overlay-content {
+            padding: 32px 24px;
+        }
     }
 
     .no-result-search-overlay {
