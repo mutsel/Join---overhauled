@@ -97,6 +97,22 @@ body::-webkit-scrollbar {
       margin-bottom: 32px;
     }
 
+    .input-password {
+      width: 100%;
+
+      .input-password-icons {
+        height: 48px;
+        width: 0;
+        align-content: center;
+
+        img {
+          position: relative;
+          transform: translateX(-180%);
+          cursor: pointer;
+        }
+      }
+    }
+
     .login-error {
       height: 0;
       position: relative;
@@ -300,7 +316,7 @@ body::-webkit-scrollbar {
       transform: translateX(-50%) translateY(-50%);
       background-image: url("../assets/join_logo_light.svg");
     }
- 
+
     20% {
       top: 50%;
       left: 50%;
@@ -338,7 +354,7 @@ body::-webkit-scrollbar {
   .sign-up-alerts {
     gap: 60px;
     transform: translateY(-272px);
-  
+
     .checkbox-error {
       bottom: 28px;
       left: calc(4.5rem - clamp(0.75rem, 9.0833rem + -26.6667vw, 3.75rem));

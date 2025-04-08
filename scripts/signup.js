@@ -10,7 +10,7 @@ async function initSignUp() {
  * This function clears the input values of the sign-up-form and unchecks the checkbox
  */
 function clearSignUpForm() {
-    document.querySelectorAll("input").forEach((element) => {element.value = ""});
+    document.querySelectorAll("input").forEach((element) => { element.value = "" });
     document.getElementById("checkboxSignUp").checked = false;
 }
 
@@ -105,4 +105,32 @@ function signUpUnsuccessfully() {
     checkFilledInput('mail');
     checkFilledInput('password');
     checkFilledInput('confirmed');
+}
+
+/**
+ * This function adds visibility of the signup-password-visibility-icons
+ * 
+ * @param {string} IconId - the id of the corresponding password-icons-div
+ */
+function showSignUpPasswordIcons(IconId) {
+    document.getElementById(IconId).classList.remove("d-none");
+    document.getElementById(IconId + "Default").classList.add("d-none");
+}
+
+/**
+ * This function toggles the visibility of the signup-passwords
+ * 
+ * @param {string} inputId - the id of focused input
+ */
+function toggleSignUpPasswordVisibility(inputId) {
+    let inputRef = document.getElementById(inputId.toLowerCase());
+    if (inputRef.type === "password") {
+        inputRef.type = "text";
+        document.getElementById("signUp" + inputId + "VisibilityOn").classList.remove("d-none");
+        document.getElementById("signUp" + inputId + "VisibilityOff").classList.add("d-none");
+    } else {
+        inputRef.type = "password";
+        document.getElementById("signUp" + inputId + "VisibilityOn").classList.add("d-none");
+        document.getElementById("signUp" + inputId + "VisibilityOff").classList.remove("d-none");
+    }
 }

@@ -35,7 +35,7 @@ async function logIn() {
         }
     } else {
         logInRequirementsUnfullfilled();
-    }
+    } 
 }
 
 /**
@@ -120,4 +120,28 @@ async function guestLogin() {
     loggedInUser = users.length - 1;
     await putData("/currentUser/userId", loggedInUser);
     redirectionToSummary(loggedInUser);
+}
+
+/**
+ * This function adds visibility of the login-password-visibility-icons
+ */
+function showLogInPasswordIcons() {
+    document.getElementById("logInIconsPassword").classList.remove("d-none");
+    document.getElementById("logInIconsPasswordDefault").classList.add("d-none");
+}
+
+/**
+ * This function toggles the visibility of the login-password
+ */
+function toggleLogInPasswordVisibility() {
+    let inputRef = document.getElementById("password");
+    if (inputRef.type === "password") {
+        inputRef.type = "text";
+        document.getElementById("logInPasswordVisibilityOn").classList.remove("d-none");
+        document.getElementById("logInPasswordVisibilityOff").classList.add("d-none");
+    } else {
+        inputRef.type = "password";
+        document.getElementById("logInPasswordVisibilityOn").classList.add("d-none");
+        document.getElementById("logInPasswordVisibilityOff").classList.remove("d-none");
+    }
 }

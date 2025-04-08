@@ -21,7 +21,7 @@
     <section class="login-signup-header flex just-space-b">
         <div class="join-logo no-animation"></div>
     </section>
- 
+
     <main>
         <section class="login-signup-container no-animation flex align-center just-center">
             <a href="../index.html" class="signup-redirect-login">
@@ -34,13 +34,33 @@
             </div>
 
             <form class="flex align-center just-center">
-                <input onblur="checkFilledInput('name')" id="name" required type="text"
-                    name="name" placeholder="Name" minlength="1" maxlength="30">
-                <input onblur="checkFilledInput('mail')" id="mail" required type="email"
-                    placeholder="Email" minlength="1" maxlength="30">
-                <input onblur="checkFilledInput('password')" id="password"
-                    type="password" placeholder="Password" minlength="1" maxlength="18">
-                <input onblur="checkFilledInput('confirmed')" id="confirmed" required type="password" placeholder="Confirm Password">
+                <input onblur="checkFilledInput('name')" id="name" required type="text" name="name" placeholder="Name"
+                    minlength="1" maxlength="30">
+                <input onblur="checkFilledInput('mail')" id="mail" required type="email" placeholder="Email"
+                    minlength="1" maxlength="30">
+
+                <div class="input-password flex">
+                    <input onfocus="showSignUpPasswordIcons('signUpIconsPassword')" onblur="checkFilledInput('password')" id="password" type="password" placeholder="Password" minlength="1" maxlength="18">
+                    <div id="signUpIconsPasswordDefault" class="input-password-icons">
+                        <img id="signUpPasswordDefault" src="../assets/input_password.svg">
+                    </div>
+                    <div id="signUpIconsPassword" class="input-password-icons d-none">
+                        <img onclick="toggleSignUpPasswordVisibility('Password')" id="signUpPasswordVisibilityOn" class="d-none" src="../assets/input_password_visibility_on.svg">
+                        <img onclick="toggleSignUpPasswordVisibility('Password')" id="signUpPasswordVisibilityOff" src="../assets/input_password_visibility_off.svg">
+                    </div>
+                </div>
+
+                <div class="input-password flex">
+                    <input onfocus="showSignUpPasswordIcons('signUpIconsConfirmed')" onblur="checkFilledInput('confirmed')" id="confirmed" required type="password" placeholder="Confirm Password">
+                    <div id="signUpIconsConfirmedDefault" class="input-password-icons">
+                        <img id="signUpConfirmedDefault" src="../assets/input_password.svg">
+                    </div>
+                    <div id="signUpIconsConfirmed" class="input-password-icons d-none">
+                        <img onclick="toggleSignUpPasswordVisibility('Confirmed')" id="signUpConfirmedVisibilityOn" class="d-none" src="../assets/input_password_visibility_on.svg">
+                        <img onclick="toggleSignUpPasswordVisibility('Confirmed')" id="signUpConfirmedVisibilityOff" src="../assets/input_password_visibility_off.svg">
+                    </div>
+                </div>
+
                 <div class="signup-checkbox flex align-center">
                     <input required type="checkbox" id="checkboxSignUp">
                     I accept the
@@ -56,13 +76,14 @@
                     <span id="alertConfirmSignUp" class="input-error invisible">Please make sure your
                         passwords
                         match</span>
-                    <span id="alertCheckboxSignUp" class="input-error checkbox-error invisible">Please accept the Privacy
+                    <span id="alertCheckboxSignUp" class="input-error checkbox-error invisible">Please accept the
+                        Privacy
                         Policy</span>
                 </div>
             </form>
 
             <div class="submit-btns flex just-center align-center">
-                <button onclick="addUser(); return false" class="blue-btn">Sign up</button> 
+                <button onclick="addUser(); return false" class="blue-btn">Sign up</button>
             </div>
         </section>
     </main>

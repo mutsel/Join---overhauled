@@ -101,12 +101,12 @@ input[type="tel"] {
   background-image: url('./assets/input_phone.svg');
 }
 
-input[type="password"] {
+/* input[type="password"] {
   background-image: url('./assets/input_password.svg');
-}
+} */
 
 input[type="password"]:focus {
-  background-image: url('./assets/input_password_visibility_off.svg');
+  background-image: none;
 }
 
 .d-none {
@@ -157,16 +157,6 @@ input[type="password"]:focus {
   background-repeat: no-repeat;
   background-position: center;
 }
-
-/* .custom-scrollbar::-webkit-scrollbar-button:vertical:start:increment {
-  background-image: url("../assets/up.svg");
-  background-position: bottom;
-}
-
-.custom-scrollbar::-webkit-scrollbar-button:vertical:end:increment {
-  background-image: url("../assets/down.svg");
-  background-position: top;
-} */
 
 .custom-scrollbar::-webkit-scrollbar-button:vertical:start:decrement,
 .custom-scrollbar::-webkit-scrollbar-button:vertical:end:decrement {
