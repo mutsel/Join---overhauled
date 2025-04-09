@@ -361,3 +361,12 @@ body::-webkit-scrollbar {
     }
   }
 }
+
+@media (max-height: 800px) {
+   .login-signup-header {
+    .login-redirect-signup {
+      top: 84%;
+      z-index: 1;
+    }
+  }
+}
