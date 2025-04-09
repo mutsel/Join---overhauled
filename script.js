@@ -146,7 +146,7 @@ async function postData(path = "", data = {}) {
     body: JSON.stringify(data)
   });
   await init();
-  return resonseToJson = await response.json();
+  return responseToJson = await response.json();
 }
 
 /**
@@ -169,7 +169,7 @@ async function putData(path = "", data = {}) {
     body: JSON.stringify(data)
   });
   await init();
-  return resonseToJson = await response.json();
+  return responseToJson = await response.json();
 }
 
 /**
@@ -182,7 +182,7 @@ async function deleteData(path = "") {
     method: "DELETE",
   });
   await init();
-  return resonseToJson = await response.json();
+  return responseToJson = await response.json();
 }
 
 /**
@@ -191,14 +191,10 @@ async function deleteData(path = "") {
  * @param {number} indexContact - the index of the contact in the contacts-array
  */
 function assignRandomColor(indexContact) {
-  if (contactColors[indexContact]) {
-    return contactColors[indexContact];
-  }
+  if (contactColors[indexContact]) { return contactColors[indexContact] }
   if (availableColors.length === 0) availableColors = [...colors];
-
   let randomIndex = Math.floor(Math.random() * availableColors.length);
   let assignedColor = availableColors.splice(randomIndex, 1)[0];
-
   contactColors[indexContact] = assignedColor;
   return assignedColor;
 }
@@ -253,6 +249,7 @@ async function successfullMsg(msgId) {
 
 /**
  * This function checks, if a required input is filled in and toggles the "requirement-unfulfilled"-class accordingly
+ * 
  * @param {string} contentRefId - the id of the element that should be checked
 */
 function checkFilledInput(contentRefId) {
@@ -353,8 +350,7 @@ function adjustUserContact(contentRef) {
 }
 
 /**
- * This function checks, if the mail-input-value is a proper name.
- * It returns the email address or shows an alert accordingly.
+ * This function checks, if the mail-input-value is a proper name. It returns the email address or shows an alert accordingly.
  * 
  * @param {string} contentRef - the id of the element
  */
@@ -373,8 +369,7 @@ function validateNameInput(contentRef) {
 }
 
 /**
- * This function checks, if the mail-input-value is a proper email address.
- * It returns the email address or shows an alert accordingly.
+ * This function checks, if the mail-input-value is a proper email address. It returns the email address or shows an alert accordingly.
  * 
  * @param {string} contentRef - the id of the element
  */
@@ -390,4 +385,23 @@ function validateMailInput(contentRef) {
     }, 2400);
     return ""
   }
+}
+
+/**
+ * This function checks, if a user with the same email address already exists and thus prevents a mail address from being used multiple times
+ */
+function checkUserAlreadyExists() {
+  if (document.getElementById("mail").value !== "") {
+    for (let indexUser = 0; indexUser < users.length; indexUser++) {
+      if (users[indexUser].mail == document.getElementById("mail").value) {
+        document.getElementById("alertMailExists").classList.remove("invisible");
+        document.getElementById("mail").classList.add("requirement-unfulfilled");
+        setTimeout(function () {
+          document.getElementById("alertMailExists").classList.add("invisible");
+          document.getElementById("mail").classList.remove("requirement-unfulfilled");
+        }, 2400);
+        return true;
+      }
+    }
+  } return false;
 }

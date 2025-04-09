@@ -165,6 +165,10 @@ body::-webkit-scrollbar {
     margin-left: 8px;
   }
 
+  .mail-error {
+    bottom: 50%;
+  }
+
   .checkbox-error {
     bottom: 26px;
     left: calc(9.375rem - clamp(3.75rem, 8.7500rem + -5.5556vw, 5.625rem));

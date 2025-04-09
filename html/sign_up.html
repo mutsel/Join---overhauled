@@ -36,28 +36,36 @@
             <form class="flex align-center just-center">
                 <input onblur="checkFilledInput('name')" id="name" required type="text" name="name" placeholder="Name"
                     minlength="1" maxlength="30">
-                <input onblur="checkFilledInput('mail')" id="mail" required type="email" placeholder="Email"
+                <input onblur="checkFilledInput('mail'); checkUserAlreadyExists()" id="mail" required type="email" placeholder="Email"
                     minlength="1" maxlength="30">
 
                 <div class="input-password flex">
-                    <input onfocus="showSignUpPasswordIcons('signUpIconsPassword')" onblur="checkFilledInput('password')" id="password" type="password" placeholder="Password" minlength="1" maxlength="18">
+                    <input onfocus="showSignUpPasswordIcons('signUpIconsPassword')"
+                        onblur="checkFilledInput('password')" id="password" type="password" placeholder="Password"
+                        minlength="1" maxlength="18">
                     <div id="signUpIconsPasswordDefault" class="input-password-icons">
                         <img id="signUpPasswordDefault" src="../assets/input_password.svg">
                     </div>
                     <div id="signUpIconsPassword" class="input-password-icons d-none">
-                        <img onclick="toggleSignUpPasswordVisibility('Password')" id="signUpPasswordVisibilityOn" class="d-none" src="../assets/input_password_visibility_on.svg">
-                        <img onclick="toggleSignUpPasswordVisibility('Password')" id="signUpPasswordVisibilityOff" src="../assets/input_password_visibility_off.svg">
+                        <img onclick="toggleSignUpPasswordVisibility('Password')" id="signUpPasswordVisibilityOn"
+                            class="d-none" src="../assets/input_password_visibility_on.svg">
+                        <img onclick="toggleSignUpPasswordVisibility('Password')" id="signUpPasswordVisibilityOff"
+                            src="../assets/input_password_visibility_off.svg">
                     </div>
                 </div>
 
                 <div class="input-password flex">
-                    <input onfocus="showSignUpPasswordIcons('signUpIconsConfirmed')" onblur="checkFilledInput('confirmed')" id="confirmed" required type="password" placeholder="Confirm Password">
+                    <input onfocus="showSignUpPasswordIcons('signUpIconsConfirmed')"
+                        onblur="checkFilledInput('confirmed')" id="confirmed" required type="password"
+                        placeholder="Confirm Password">
                     <div id="signUpIconsConfirmedDefault" class="input-password-icons">
                         <img id="signUpConfirmedDefault" src="../assets/input_password.svg">
                     </div>
                     <div id="signUpIconsConfirmed" class="input-password-icons d-none">
-                        <img onclick="toggleSignUpPasswordVisibility('Confirmed')" id="signUpConfirmedVisibilityOn" class="d-none" src="../assets/input_password_visibility_on.svg">
-                        <img onclick="toggleSignUpPasswordVisibility('Confirmed')" id="signUpConfirmedVisibilityOff" src="../assets/input_password_visibility_off.svg">
+                        <img onclick="toggleSignUpPasswordVisibility('Confirmed')" id="signUpConfirmedVisibilityOn"
+                            class="d-none" src="../assets/input_password_visibility_on.svg">
+                        <img onclick="toggleSignUpPasswordVisibility('Confirmed')" id="signUpConfirmedVisibilityOff"
+                            src="../assets/input_password_visibility_off.svg">
                     </div>
                 </div>
 
@@ -69,8 +77,12 @@
 
                 <div class="sign-up-alerts flex column">
                     <span id="alertName" class="input-error invisible">Please enter a valid name</span>
-                    <span id="alertMail" class="input-error invisible">Please enter a valid email
-                        address</span>
+                    <div>
+                        <span id="alertMail" class="input-error invisible">Please enter a valid email
+                            address</span>
+                        <span id="alertMailExists" class="input-error mail-error invisible">
+                            This email address has been used already</span>
+                    </div>
                     <span id="alertPasswordSignUp" class="input-error invisible">Please enter a valid
                         password</span>
                     <span id="alertConfirmSignUp" class="input-error invisible">Please make sure your
