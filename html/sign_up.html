@@ -36,8 +36,8 @@
             <form class="flex align-center just-center">
                 <input onblur="checkFilledInput('name')" id="name" required type="text" name="name" placeholder="Name"
                     minlength="1" maxlength="30">
-                <input onblur="checkFilledInput('mail'); checkMailAlreadyExists('mail')" id="mail" required type="email" placeholder="Email"
-                    minlength="1" maxlength="30">
+                <input onblur="checkFilledInput('mail'); checkMailAlreadyExists('mail')" id="mail" required type="email"
+                    placeholder="Email" minlength="1" maxlength="30">
 
                 <div class="input-password flex">
                     <input onfocus="showSignUpPasswordIcons('signUpIconsPassword')"
@@ -77,12 +77,9 @@
 
                 <div class="sign-up-alerts flex column">
                     <span id="alertName" class="input-error invisible">Please enter a valid name</span>
-                    <div>
-                        <span id="alertMail" class="input-error invisible">Please enter a valid email
-                            address</span>
-                        <span id="alertMailExists" class="input-error mail-error invisible">
-                            This email address has been used already</span>
-                    </div>
+                    <span id="alertMail" class="input-error invisible">Please enter a valid email
+                        address</span>
+
                     <span id="alertPasswordSignUp" class="input-error invisible">Please enter a valid
                         password</span>
                     <span id="alertConfirmSignUp" class="input-error invisible">Please make sure your
@@ -91,6 +88,8 @@
                     <span id="alertCheckboxSignUp" class="input-error checkbox-error invisible">Please accept the
                         Privacy
                         Policy</span>
+                    <span id="alertMailExists" class="input-error mail-error invisible">
+                        This email address has been used already</span>
                 </div>
             </form>
 

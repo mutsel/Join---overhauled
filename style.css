@@ -317,11 +317,11 @@ button {
     }
 
     .edit-icon {
-      background-image: url("../assets/edit.svg");
+      background-image: url("./assets/edit.svg");
     }
 
     .delete-icon {
-      background-image: url("../assets/delete.svg");
+      background-image: url("./assets/delete.svg");
     }
   }
 
@@ -332,11 +332,11 @@ button {
 }
 
 .edit-delete-btns button:hover .edit-icon {
-  background-image: url("../assets/edit_hover.svg");
+  background-image: url("./assets/edit_hover.svg");
 }
 
 .edit-delete-btns button:hover .delete-icon {
-  background-image: url("../assets/delete_hover.svg");
+  background-image: url("./assets/delete_hover.svg");
 }
 
 /* input-errors */
