@@ -389,16 +389,18 @@ function validateMailInput(contentRef) {
 
 /**
  * This function checks, if a user with the same email address already exists and thus prevents a mail address from being used multiple times
+ * 
+ *  * @param {string} contentRef - the id of the element
  */
-function checkUserAlreadyExists() {
-  if (document.getElementById("mail").value !== "") {
+function checkMailAlreadyExists(contentRef) {
+  if (document.getElementById(contentRef).value !== "") {
     for (let indexUser = 0; indexUser < users.length; indexUser++) {
-      if (users[indexUser].mail == document.getElementById("mail").value) {
+      if (users[indexUser].mail == document.getElementById(contentRef).value) {
         document.getElementById("alertMailExists").classList.remove("invisible");
-        document.getElementById("mail").classList.add("requirement-unfulfilled");
+        document.getElementById(contentRef).classList.add("requirement-unfulfilled");
         setTimeout(function () {
           document.getElementById("alertMailExists").classList.add("invisible");
-          document.getElementById("mail").classList.remove("requirement-unfulfilled");
+          document.getElementById(contentRef).classList.remove("requirement-unfulfilled");
         }, 2400);
         return true;
       }

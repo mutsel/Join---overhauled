@@ -214,7 +214,7 @@
             <div class="overlay-title-seperator"></div>
         </div>
         <div class="overlay-contact-information flex">
-            <div class="overlay-close"> 
+            <div class="overlay-close">
                 <img onclick="closeContactsOverlay()" src="../assets/cancel.svg">
             </div>
             <div class="overlay-contact-inputs flex align-center just-space-b">
@@ -231,11 +231,14 @@
                     </div>
 
                     <div class="overlay-input flex">
-                        <input onkeydown="onlyAllowMailAddress(event)" onblur="checkFilledInput('addContactMail')"
+                        <input onkeydown="onlyAllowMailAddress(event)"
+                            onblur="checkFilledInput('addContactMail'); checkMailAlreadyExists('addContactMail')"
                             id="addContactMail" type="email" placeholder="Email" required minlength="1" maxlength="30">
                         <div class="contacts-alerts">
                             <span id="alertMail" class="input-error invisible">Please enter a valid email
                                 address</span>
+                            <span id="alertMailExists" class="input-error mail-error invisible">
+                                This email address has been used already</span>
                         </div>
                     </div>
                     <div class="overlay-input flex">

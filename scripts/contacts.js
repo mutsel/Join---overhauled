@@ -145,7 +145,8 @@ function clearContactForm() {
 async function addContact() {
     let contactName = validateNameInput("addContactName");
     let contactMail = validateMailInput("addContactMail");
-    if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "") {
+    let mailExists = checkMailAlreadyExists('addContactMail');
+    if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "" && mailExists == false) {
         await postData("/contacts/", {
             "name": contactName,
             "mail": contactMail,
@@ -249,7 +250,7 @@ function highlightContact(indexContact) {
  * This function shows the clicked contact in a large view
  * 
  * @param {number} indexContact - the index of the contact in the contacts-array
- */
+ */ 
 function updateFocusedContact(indexContact) {
     let focusedContactRef = document.getElementById("focusedContactInformation");
     focusedContactRef.innerHTML = "";
@@ -272,8 +273,9 @@ async function saveEditContact() {
     let contactName = validateNameInput("addContactName");
     let contactMail = validateMailInput("addContactMail");
     let indexContact = document.querySelector(".index-contact").id;
+    let mailExists = checkMailAlreadyExists('addContactMail');
     if (indexContact !== indexContactUser) {
-        if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "") {
+        if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "" && mailExists == false) {
             await putData("/contacts/" + contacts[indexContact].url, {
                 "name": contactName,
                 "mail": contactMail,

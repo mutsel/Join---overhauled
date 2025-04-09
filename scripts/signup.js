@@ -21,10 +21,10 @@ function clearSignUpForm() {
 async function addUser() {
     let userName = validateNameInput("name");
     let userMail = validateMailInput("mail");
-    let userMailExists = checkUserAlreadyExists();
+    let mailExists = checkMailAlreadyExists('mail');
     if (checkPasswordConfirmed() !== undefined) {
         if (document.getElementById("checkboxSignUp").checked) {
-            if (userName !== "" && userMail !== "" && userMailExists == false) {
+            if (userName !== "" && userMail !== "" && mailExists == false) {
                 await postData("/users/", {
                     "name": userName,
                     "mail": userMail,

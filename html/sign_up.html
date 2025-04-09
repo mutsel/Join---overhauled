@@ -36,7 +36,7 @@
             <form class="flex align-center just-center">
                 <input onblur="checkFilledInput('name')" id="name" required type="text" name="name" placeholder="Name"
                     minlength="1" maxlength="30">
-                <input onblur="checkFilledInput('mail'); checkUserAlreadyExists()" id="mail" required type="email" placeholder="Email"
+                <input onblur="checkFilledInput('mail'); checkMailAlreadyExists('mail')" id="mail" required type="email" placeholder="Email"
                     minlength="1" maxlength="30">
 
                 <div class="input-password flex">
