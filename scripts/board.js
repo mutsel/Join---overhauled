@@ -17,7 +17,7 @@ function clearTaskProgressCategories() {
   document.getElementById("awaitFeedback").innerHTML = "";
   document.getElementById("done").innerHTML = "";
 }
-
+ 
 /** 
  * This function creates a task-card for each task in its corresponding progress-category
  */

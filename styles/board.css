@@ -517,7 +517,7 @@ main {
 }
 
 .category-user-story {
-    background: var(--bg-blue);
+    background: var(--bg-blue); 
 }
 
 @media (max-width: 1000px) {

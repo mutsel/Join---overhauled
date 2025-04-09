@@ -44,11 +44,11 @@ function getAddTaskContactPB(indexContact) {
  * @param {number} indexSubtask - the index of the subtask in the subtasks-list
  */
 function getAddTaskSubtaskTemplate(subtask, indexSubtask) {
-    return `<div ondblclick="editSubtask(${indexSubtask})" id="subtask${indexSubtask}" class="subtask flex align-center just-space-b">
+    return `<div ondblclick="editSubtask(event)" id="subtask${indexSubtask}" class="subtask flex align-center just-space-b">
             ${getAddTaskSubtaskListElementTemplate(subtask, indexSubtask)}
             </div>`
 }
-
+ 
 /**
  * This template displays the content of a subtask in a list element.
  * 
@@ -58,7 +58,7 @@ function getAddTaskSubtaskTemplate(subtask, indexSubtask) {
 function getAddTaskSubtaskListElementTemplate(subtask, indexSubtask) {
     return `<li class="subtask-content">${subtask}</li>
             <div class="subtask-list-icons">
-                <img onclick="editSubtask(${indexSubtask})" class="subtask-icon" src="../assets/edit.svg">
+                <img onclick="editSubtask(event)" class="subtask-icon" src="../assets/edit.svg">
                 <div class="subtask-icons-seperator"></div>
                 <img onclick="deleteSubtask(${indexSubtask})" class="subtask-icon" src="../assets/delete.svg">
             </div>`

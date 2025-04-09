@@ -50,7 +50,7 @@ function getAssignedContacts() {
     let assignedContactsIndexArray = [];
     let assignedContactsArray = [];
     for (let indexAssignedContact = 0; indexAssignedContact < assignedContactsList.length; indexAssignedContact++) {
-        let assignedContactId = assignedContactsList[indexAssignedContact].id.replace("addTaskAssignedToListPB", " ").trim();
+        let assignedContactId = assignedContactsList[indexAssignedContact].id.replace("overviewContact", " ").trim();
         assignedContactsIndexArray.push(assignedContactId);
         if (assignedContactId == -1) {
             getAssignedContactsUser(assignedContactsArray);
@@ -59,6 +59,20 @@ function getAssignedContacts() {
         }
     }
     return assignedContactsArray;
+}
+
+/**
+ * This function adds the user (if assigned) to the assignedContactsArray for a task
+ * 
+ * @param {Array} assignedContactsArray - the array for the contacts that are assigned for a task
+ */
+function getAssignedContactsUser(assignedContactsArray) {
+    assignedContactsArray.push({
+        "color": "#D9D9D9",
+        "mail": "",
+        "name": "",
+        "phone": ""
+    });
 }
 
 /**
@@ -95,20 +109,6 @@ function dateInputInvalid() {
 }
 
 /**
- * This function adds the user (if assigned) to the assignedContactsArray for a task
- * 
- * @param {Array} assignedContactsArray - the array for the contacts that are assigned for a task
- */
-function getAssignedContactsUser(assignedContactsArray) {
-    assignedContactsArray.push({
-        "color": "#D9D9D9",
-        "mail": "",
-        "name": "",
-        "phone": ""
-    });
-}
-
-/**
  * This function returns the chosen priority for a task
  */
 function getTaskPriority() {
@@ -127,12 +127,28 @@ function getSubtasks() {
     let subtasks = document.querySelectorAll(".subtask-content");
     let subtasksArray = [];
     for (let indexSubtask = 0; indexSubtask < subtasks.length; indexSubtask++) {
+        console.log(subtasks.length)
         subtasksArray.push({
             "subtask": subtasks[indexSubtask].innerHTML,
-            "completed": false
+            "completed": getSubtaskCompleted(indexSubtask)
         })
     }
+    console.log(subtasksArray)
     return subtasksArray;
+}
+
+/**
+* This function returns the subtask-progress for each subtask (or false, if the task is newly added)
+*  
+* @param {number} indexSubtask - the index of the subtask in the subtasks-list
+*/
+function getSubtaskCompleted(indexSubtask) {
+    let subtaskContentRef = document.getElementById("subtask" + indexSubtask);
+    if (subtaskContentRef.classList.contains("subtask-completed-true")) {
+        return "true"
+    } else {
+        return "false"
+    }
 }
 
 /**

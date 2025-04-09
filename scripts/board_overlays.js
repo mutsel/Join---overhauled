@@ -250,15 +250,28 @@ function fillEditTaskInputs(indexTask) {
 function fillEditTaskFormLists(indexTask) {
     if (tasks[indexTask].assignedTo !== undefined) {
         for (let indexAssignedContact = 0; indexAssignedContact < tasks[indexTask].assignedTo.length; indexAssignedContact++) {
-            let indexContact = contacts.findIndex((element) => { return element.name === tasks[indexTask].assignedTo[indexAssignedContact].name })
-            addAssignedContactToList(indexContact)
+            let indexContact = contacts.findIndex((element) => { return element.name === tasks[indexTask].assignedTo[indexAssignedContact].name });
+            addAssignedContactToList(indexContact);
         }
     }
     if (tasks[indexTask].subtasks !== undefined) {
         for (let indexSubtask = 0; indexSubtask < tasks[indexTask].subtasks.length; indexSubtask++) {
             let subtask = tasks[indexTask].subtasks[indexSubtask].subtask;
-            document.getElementById("addTaskSubtaskListContent").innerHTML += getAddTaskSubtaskTemplate(subtask, indexSubtask)
+            document.getElementById("addTaskSubtaskListContent").innerHTML += getAddTaskSubtaskTemplate(subtask, indexSubtask);
         }
+        addSubtaskProgressClass(indexTask);
+    }
+}
+
+/**
+ * This function adds a class to each already existing subtask. The given class indicates the completed-status (true or false) for each subtask.
+ * 
+ * @param {number} indexTask - the index of the task in the tasks-array
+ */
+function addSubtaskProgressClass(indexTask) {
+    for (let indexSubtask = 0; indexSubtask < tasks[indexTask].subtasks.length; indexSubtask++) {
+        let subtaskContentRef = document.getElementById("subtask" + indexSubtask);
+        subtaskContentRef.classList.add("subtask-completed-" + tasks[indexTask].subtasks[indexSubtask].completed);
     }
 }
 

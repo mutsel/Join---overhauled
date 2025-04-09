@@ -303,10 +303,15 @@ function addSubtaskToList() {
  * This function replaces the subtask-list element with an input (template).
  * This way the user is able to edit the subtask-content.
  * 
- * @param {number} indexSubtask - the index of the subtask in the subtasks-list
+ * @param {MouseEvent} event - the event that triggered to be able to edit a subtask
  */
-function editSubtask(indexSubtask) {
+function editSubtask(event) {
     addAddTaskOverlay();
+    if (event.type == "dblclick") {
+        indexSubtask = event.target.id.replace("subtask", " ").trim();
+    } else {
+        indexSubtask = event.target.parentElement.parentElement.id.replace("subtask", " ").trim();
+    }
     let subtaskContentRef = document.getElementById("subtask" + indexSubtask);
     if (subtaskContentRef.innerText !== null) {
         let subtask = subtaskContentRef.innerText;
@@ -323,7 +328,18 @@ function editSubtask(indexSubtask) {
 function deleteSubtask(indexSubtask) {
     let subtaskContentRef = document.getElementById("subtask" + indexSubtask);
     subtaskContentRef.remove();
+    adjustSubtasksIds();
     removeAddTaskOverlay();
+}
+
+/**
+ * This function adjusts the ids of each subtask-element after one subtask was deleted
+ */
+function adjustSubtasksIds() {
+    let subtasks = document.querySelectorAll(".subtask");
+    for (let indexSubtask = 0; indexSubtask < subtasks.length; indexSubtask++) {
+        subtasks[indexSubtask].id = "subtask" + indexSubtask;
+    }
 }
 
 /**
