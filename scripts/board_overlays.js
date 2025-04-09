@@ -19,9 +19,9 @@ function closeOverlays() {
  * This function opens the background overlay for board-overlays
  */
 function openBoardBgOverlay() {
+    document.querySelector("html").classList.add("no-scroll");
     document.getElementById("overviewOverlay").classList.add("d-none");
     document.getElementById("boardOverlayBg").classList.remove("d-none");
-    document.querySelector("html").classList.add("no-scroll");
     document.getElementById("boardOverlayBg").style.animationName = "openBgOverlay";
 }
 
@@ -82,6 +82,7 @@ function openBoardAddTaskOverlay(addTaskOverlayContent, progress) {
 * 
 * @param {html} addTaskOverlayContent - the html of the main-part of the add_task.html
 * @param {string} progress - the progress-category, where the edited task is in after submitting
+* @param {number} indexTask - the index of the task in the tasks-array
 */
 function openBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) {
     document.getElementById("overviewOverlay").classList.add("d-none");

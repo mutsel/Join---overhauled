@@ -114,7 +114,6 @@ function setActiveMenuLink() {
       return location;
     }
   }
-
   switch (location) {
     case currentPage("summary"):
       document.getElementById("summaryLink").classList.add("active"); break;

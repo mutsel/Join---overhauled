@@ -68,6 +68,9 @@ function logInRequirementsUnfullfilled(requirement) {
 
 /**
  * This function reads out the data of the add-contact-form and sends it to firebase
+ * 
+ * @param {string} userName - the name of the new user
+ * @param {string} userMail - the mail address of the new user
  */
 async function addUserToContacts(userName, userMail) {
     let indexContact = contacts.length + 1;
@@ -111,11 +114,11 @@ function signUpUnsuccessfully() {
 /**
  * This function adds visibility of the signup-password-visibility-icons
  * 
- * @param {string} IconId - the id of the corresponding password-icons-div
+ * @param {string} iconId - the id of the corresponding password-icons-div
  */
-function showSignUpPasswordIcons(IconId) {
-    document.getElementById(IconId).classList.remove("d-none");
-    document.getElementById(IconId + "Default").classList.add("d-none");
+function showSignUpPasswordIcons(iconId) {
+    document.getElementById(iconId).classList.remove("d-none");
+    document.getElementById(iconId + "Default").classList.add("d-none");
 }
 
 /**

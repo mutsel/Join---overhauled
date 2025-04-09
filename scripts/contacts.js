@@ -1,5 +1,3 @@
-const addressBookContentRef = document.getElementsByClassName("contacts-letter");
-
 /**
  * This function is the inital function, when contacts.html is loading and executes the init()-function and furher necessary contacts-functions
  */
@@ -39,6 +37,7 @@ function adjustToWindowSize() {
  * This function clears the contacts-list for each letter and redirects to the function, that fills the list with contacts
  */
 function renderAddressBook() {
+    const addressBookContentRef = document.getElementsByClassName("contacts-letter");
     for (let indexLetter = 0; indexLetter < addressBookContentRef.length; indexLetter++) {
         addressBookContentRef[indexLetter].innerHTML = "";
     }
@@ -61,6 +60,7 @@ function renderContacts() {
  * This function is executed after the address book finished rendering and iterates through each letter and hides it, if it does not contain any contact
  */
 function hideNotUsedLetters() {
+    const addressBookContentRef = document.getElementsByClassName("contacts-letter");
     const letterContentRef = document.getElementsByClassName("address-book-letter");
     for (let indexLetter = 0; indexLetter < letterContentRef.length; indexLetter++) {
         if (addressBookContentRef[indexLetter].innerHTML == "") {
@@ -206,6 +206,11 @@ function contactClicked(indexContact) {
     updateFocusedContact(indexContact);
 }
 
+/**
+ * This function adjusts the page for the mobile version, if a contact was clicked
+ * 
+ * @param {number} indexContact - the index of the contact in the contacts-array
+ */
 function contactClickedMobile(indexContact) {
     document.getElementById("addresbookHideMobile").classList.add("d-none");
     document.getElementById("contactFocus").style.display = "flex";
@@ -339,6 +344,8 @@ async function deleteContact(indexContact) {
 /**
  * This function checks if the pressed key is a N umber and returns it if true.
  * Like this, only numbers (and "+") are valide inputs
+ * 
+ * @param {KeyboardEvent} event - keydown-event to fill the input
  */
 function onlyAllowNumbers(event) {
     if (!isNaN(event.key) || event.key == "Backspace") {
@@ -353,6 +360,8 @@ function onlyAllowNumbers(event) {
 /**
  * This function checks if the pressed key is a not space and returns it if true.
  * Furthermore it only returns '@' if the input does not already contain it.
+ * 
+ * @param {KeyboardEvent} event - keydown-event to fill the input
  */
 function onlyAllowMailAddress(event) {
     if (event.key == " ") {

@@ -73,20 +73,18 @@ async function removeAddTaskOverlay() {
 /**
  * This function toggles the visibility of the dropdown-menu for "assigned to" and "category"
  * 
- * @param {string} contentRef - the id of the dropdown-menu, that is clicked
- * @param {string} contentRef - the id of the dropdown-menu, that is clicked
+ * @param {string} inputContentRef - the id of the dropdown-menu, that is clicked
+ * @param {string} dropdownContentRef - the id of the dropdown-menu, that is clicked
  */
-function toggleAddTaskToDropDownMenu(inputContentRef, DropdownContentRef) {
+function toggleAddTaskToDropDownMenu(inputContentRef, dropdownContentRef) {
     addAddTaskOverlay();
     classListAssignedContacts();
     document.getElementById(inputContentRef).classList.add("add-task-current-select");
-    document.getElementById(DropdownContentRef).classList.remove("d-none");
+    document.getElementById(dropdownContentRef).classList.remove("d-none");
 }
 
 /**
  * This function fills the assigned-to-dropdown-menu with the contacts from the contact-array(template)
- * 
- * @param {number} indexContact - the index of the contact in the contacts-array
  */
 function fillAssignedToDropDownMenu() {
     let assignedToSelect = document.getElementById("addTaskDropdownContacts");

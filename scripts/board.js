@@ -253,9 +253,9 @@ function showDropdownArea(contentRefId) {
 }
 
 /**
- * Sets the dragged element's ID in the dataTransfer object.
+ * Sets the dragged element's id in the dataTransfer object
  * 
- * @param {DragEvent} event - The drag event.
+ * @param {DragEvent} event - the drag event
  */
 function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
@@ -263,9 +263,9 @@ function drag(event) {
 
 
 /**
- * Handles the drop event by moving the dragged task to a new column and updating its progress.
+ * Handles the drop event by moving the dragged task to a new column and updating its progress
  * 
- * @param {DragEvent} event - The drop event.
+ * @param {DragEvent} event - the drop event
  */
 function drop(event) {
   event.preventDefault();

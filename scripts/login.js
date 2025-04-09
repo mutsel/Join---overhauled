@@ -113,8 +113,6 @@ function compareMailPassword() {
 
 /**
  * This function gives the currentUser the id of the guest, so the users doesn't need to sign up to use Join
- * 
- * @param {number} loggedInUser - the id of the logged in user
  */
 async function guestLogin() {
     loggedInUser = users.length - 1;
