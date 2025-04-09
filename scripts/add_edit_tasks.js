@@ -127,13 +127,11 @@ function getSubtasks() {
     let subtasks = document.querySelectorAll(".subtask-content");
     let subtasksArray = [];
     for (let indexSubtask = 0; indexSubtask < subtasks.length; indexSubtask++) {
-        console.log(subtasks.length)
         subtasksArray.push({
             "subtask": subtasks[indexSubtask].innerHTML,
             "completed": getSubtaskCompleted(indexSubtask)
         })
     }
-    console.log(subtasksArray)
     return subtasksArray;
 }
 

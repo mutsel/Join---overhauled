@@ -272,7 +272,6 @@ async function saveEditContact() {
     let contactName = validateNameInput("addContactName");
     let contactMail = validateMailInput("addContactMail");
     let indexContact = document.querySelector(".index-contact").id;
-    console.log(indexContact);
     if (indexContact !== indexContactUser) {
         if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "") {
             await putData("/contacts/" + contacts[indexContact].url, {
