@@ -84,6 +84,8 @@ function openBoardAddTaskOverlay(addTaskOverlayContent, progress) {
 * @param {string} progress - the progress-category, where the edited task is in after submitting
 */
 function openBoardEditTaskOverlay(addTaskOverlayContent, progress, indexTask) {
+    document.getElementById("overviewOverlay").classList.add("d-none");
+    document.getElementById("overviewOverlayContent").innerHTML = "";
     document.getElementById("editTaskOverlay").classList.remove("d-none");
     document.getElementById("editTaskOverlay").style.animationName = "openOverlay";
     document.getElementById("editTaskOverlayContent").innerHTML = "";
@@ -251,7 +253,8 @@ function fillEditTaskFormLists(indexTask) {
     if (tasks[indexTask].assignedTo !== undefined) {
         for (let indexAssignedContact = 0; indexAssignedContact < tasks[indexTask].assignedTo.length; indexAssignedContact++) {
             let indexContact = contacts.findIndex((element) => { return element.name === tasks[indexTask].assignedTo[indexAssignedContact].name });
-            addAssignedContactToList(indexContact);
+            document.getElementById("addTaskAssignedToListContent").innerHTML += getAddTaskContactPB(indexContact);
+            profileBadgeColor("addTaskAssignedToListPB" + indexContact, indexContact);
         }
     }
     if (tasks[indexTask].subtasks !== undefined) {

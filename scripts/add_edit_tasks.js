@@ -50,29 +50,15 @@ function getAssignedContacts() {
     let assignedContactsIndexArray = [];
     let assignedContactsArray = [];
     for (let indexAssignedContact = 0; indexAssignedContact < assignedContactsList.length; indexAssignedContact++) {
-        let assignedContactId = assignedContactsList[indexAssignedContact].id.replace("overviewContact", " ").trim();
+        let assignedContactId = assignedContactsList[indexAssignedContact].id.replace("addTaskAssignedToListPB", " ").trim();
         assignedContactsIndexArray.push(assignedContactId);
         if (assignedContactId == -1) {
-            getAssignedContactsUser(assignedContactsArray);
+            assignedContactsArray.push(contacts[indexContactUser]);
         } else {
-            assignedContactsArray.push(contacts[assignedContactsIndexArray[indexAssignedContact]]);
+            assignedContactsArray.push(contacts[assignedContactId]);
         }
     }
     return assignedContactsArray;
-}
-
-/**
- * This function adds the user (if assigned) to the assignedContactsArray for a task
- * 
- * @param {Array} assignedContactsArray - the array for the contacts that are assigned for a task
- */
-function getAssignedContactsUser(assignedContactsArray) {
-    assignedContactsArray.push({
-        "color": "#D9D9D9",
-        "mail": "",
-        "name": "",
-        "phone": ""
-    });
 }
 
 /**
@@ -117,7 +103,7 @@ function getTaskPriority() {
         return "";
     } else {
         return clickedPriority.innerText;
-    }
+    } 
 }
 
 /**
