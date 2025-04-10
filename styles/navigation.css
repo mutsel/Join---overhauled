@@ -90,12 +90,15 @@
     p {
       margin-bottom: 15px;
 
-      a {
+      a,
+      span {
         color: var(--clr-lightGray);
       }
 
-      a:hover {
+      a:hover,
+      span:hover {
         color: var(--clr-lighterGray);
+        cursor: pointer;
       }
     }
   }
