@@ -317,8 +317,6 @@ function redirectToPreviousPage() {
   previousLocation = JSON.parse(localStorage.getItem("location"));
   if (previousLocation !== null) {
     window.location.href = previousLocation;
-  } else {
-    window.location.href = "http://127.0.0.1:5500/html/summary.html";
   }
 }
 
