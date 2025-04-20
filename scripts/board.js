@@ -281,7 +281,7 @@ function drop(event) {
     draggedElement.remove();
   }
 }
-
+ 
 /**
  * This function checks, if the progress of a task had changed.
  * If yes, it updates the data in firebase

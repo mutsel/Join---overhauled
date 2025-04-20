@@ -277,9 +277,9 @@ function updateFocusedContact(indexContact) {
 async function saveEditContact() {
     let contactName = validateNameInput("addContactName");
     let contactMail = validateMailInput("addContactMail");
-    let indexContact = document.querySelector(".index-contact").id;
-    let mailExists = checkMailAlreadyExists('addContactMail');
+    let indexContact = Number(document.querySelector(".index-contact").id);
     if (indexContact !== indexContactUser) {
+        let mailExists = checkMailAlreadyExists('addContactMail');
         if (contactName !== "" && contactMail !== "" && document.getElementById("addContactPhone").value.trim() !== "" && mailExists == false) {
             await putData("/contacts/" + contacts[indexContact].url, {
                 "name": contactName,
@@ -312,17 +312,17 @@ async function saveEditContactUser() {
  * @param {string} userName - the name of the edited user
  * @param {string} userMail - the mail address of the edited user
  */
-async function editContactUser(userName, userMail) {
-    await putData("/users/" + users[currentUser].url, {
-        "name": userName,
-        "mail": userMail,
-        "password": users[currentUser].password
-    });
+async function editContactUser(userName, userMail) { 
     await putData("/contacts/" + contacts[indexContactUser].url, {
         "name": userName,
         "mail": userMail,
         "phone": document.getElementById("addContactPhone").value.trim(),
         "color": contacts[indexContactUser].color
+    });
+        await putData("/users/" + users[currentUser].url, {
+        "name": userName,
+        "mail": userMail,
+        "password": users[currentUser].password
     });
 }
 

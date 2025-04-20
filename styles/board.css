@@ -329,6 +329,7 @@ main {
 }
 
 .board-overview-overlay {
+    min-height: max-content;
     max-height: 930px;
 
     .overview-overlay-content {
@@ -349,7 +350,6 @@ main {
 
         .overview-title,
         .overview-description {
-            overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -380,6 +380,7 @@ main {
         }
 
         .overview-contacts {
+            min-height: 60px;
             max-height: 168px;
             margin-top: -12px;
             overflow-y: auto;
@@ -399,8 +400,9 @@ main {
                 width: 42px;
             }
         }
-
+ 
         .overview-subtasks {
+            min-height: 65px;
             max-height: 114px;
             margin-top: -12px;
             overflow-y: auto;

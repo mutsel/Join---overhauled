@@ -144,11 +144,13 @@ function fillTaskOverviewLists(indexTask) {
         assignedToOverviewList(indexTask);
     } else {
         document.getElementById("hideForNoAssignedTo").classList.add("d-none");
+        document.getElementById("overviewAssignedContacts" + indexTask).classList.add("d-none");
     }
     if (tasks[indexTask].subtasks !== undefined) {
         subtasksOverviewList(indexTask);
     } else {
         document.getElementById("hideForNoSubtasks").classList.add("d-none");
+        document.getElementById("overviewSubtasks" + indexTask).classList.add("d-none");
     }
 }
 

@@ -388,7 +388,7 @@ function validateMailInput(contentRef) {
  * This function checks, if a user with the same email address already exists and thus prevents a mail address from being used multiple times
  * 
  *  * @param {string} contentRef - the id of the element
- */
+ */ 
 function checkMailAlreadyExists(contentRef) {
   if (document.getElementById(contentRef).value !== "") {
     for (let indexUser = 0; indexUser < users.length; indexUser++) {
